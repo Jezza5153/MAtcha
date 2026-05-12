@@ -5,7 +5,7 @@ import { products, formatPrice } from "@/lib/products";
 
 export default function Home() {
   return (
-    <main>
+    <main className="freddo-ambient">
       <CinematicScroll />
 
       <section
@@ -18,7 +18,7 @@ export default function Home() {
             06 · The shop
           </p>
           <h2 className="mt-3 max-w-2xl font-display text-4xl leading-[1.1] tracking-tight text-matcha-950 sm:text-5xl">
-            Three ways in.
+            The first FreddoMatcha blends.
           </h2>
           <ul className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {products.map((p) => (
@@ -73,7 +73,7 @@ export default function Home() {
           {[
             {
               k: "Origin",
-              v: "Single-origin Uji, Japan. Named-farm sourcing.",
+              v: "Single-origin Uji, Japan. Named-farm ceremonial sourcing.",
             },
             {
               k: "Lab tested",
@@ -81,7 +81,7 @@ export default function Home() {
             },
             {
               k: "Shipping",
-              v: "EU shipping in 1–3 days. Free over €60.",
+              v: "Private client delivery concierge launches with checkout.",
             },
           ].map((t) => (
             <div key={t.k}>
