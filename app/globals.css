@@ -1,26 +1,79 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  /* Matcha greens — deep, earthy, ceremonial */
+  --color-matcha-950: #0d1f15;
+  --color-matcha-900: #14301f;
+  --color-matcha-800: #1d4329;
+  --color-matcha-700: #2c5a36;
+  --color-matcha-600: #3f7242;
+  --color-matcha-500: #6f9342;
+  --color-matcha-400: #95b067;
+  --color-matcha-300: #b9cc91;
+  --color-matcha-200: #d6e3b8;
+  --color-matcha-100: #ecf0d8;
+
+  /* Cream / paper / warm neutrals */
+  --color-cream-50: #fbf7ec;
+  --color-cream-100: #f4eddb;
+  --color-cream-200: #ebe1c5;
+
+  /* Stone / ceramic */
+  --color-stone-soft: #d8d0bf;
+  --color-stone-mid: #a89e89;
+
+  /* Ink */
+  --color-ink: #15201a;
+  --color-ink-soft: #4a5247;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  /* Fonts — values come from next/font on the <html> element */
+  --font-display: var(--font-fraunces);
+  --font-body: var(--font-inter);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html,
+body {
+  background: var(--color-cream-50);
+  color: var(--color-ink);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-body), system-ui, sans-serif;
+  font-feature-settings: "kern", "ss01";
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--color-matcha-700);
+  color: var(--color-cream-50);
+}
+
+.hero-cloud,
+.hero-pack,
+.origin-image,
+.motion-layer {
+  will-change: transform, opacity;
+  transform: translateZ(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .hero-cloud,
+  .hero-pack,
+  .origin-image,
+  .motion-layer {
+    will-change: auto;
+    transform: none;
+  }
 }

@@ -1,36 +1,69 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Matcha — premium ecommerce scroll site
 
-## Getting Started
+Calm, premium "leaf to ritual" scroll-storytelling site for a single-origin matcha brand. Built on Next.js 16 (App Router), Tailwind v4, GSAP ScrollTrigger, and Lenis.
 
-First, run the development server:
+## Stack
+
+- **Next.js (App Router) + TypeScript** — Turbopack on by default.
+- **React 19.2** via App Router.
+- **Tailwind CSS v4** — CSS-first; brand tokens declared with `@theme` in `app/globals.css`.
+- **GSAP 3 + ScrollTrigger** — fully free since 2025.
+- **`@gsap/react`** — `useGSAP()` hook handles cleanup under React Strict Mode.
+- **Lenis** — smooth scroll, single RAF loop driven by `gsap.ticker`.
+
+## Run
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Visit `http://localhost:3000`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Project layout
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+app/                       # routes (App Router)
+components/
+  providers/LenisProvider  # smooth scroll + gsap.ticker
+  scroll/HeroPinned        # pinned hero scrubbed timeline
+lib/
+  gsap.ts                  # ScrollTrigger registration
+  products.ts              # typed catalog (3 SKUs, no Stripe yet)
+public/                    # placeholders, real assets land later
+.claude/skills/            # 5 project-local skills (brand, motion, UX, perf, Stitch)
+docs/                      # owner asset checklist + Stitch/Claude prompts
+```
 
-## Learn More
+## Slice 1 (current)
 
-To learn more about Next.js, take a look at the following resources:
+- Scaffold + Tailwind v4 brand tokens
+- Lenis + GSAP wired with single RAF
+- Pinned Hero with scrubbed powder/pack/headline timeline
+- Section stubs for Origin / Grinding / Ritual / Taste / Trust / Buy
+- Product placeholders (no Stripe wiring)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Slice 2 (next)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Stripe Checkout — `lib/stripe.ts`, `app/api/checkout/route.ts`, `@stripe/stripe-js` redirect
+- Real product cards with working CTAs
+- Success / cancel pages
 
-## Deploy on Vercel
+## Slice 3+
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Origin / Grinding / Whisking / Taste sections built out
+- Real product photography + video
+- Reviews / trust strip
+- SEO + structured data
+- Email capture
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Animation direction
+
+See `.claude/skills/scroll-animation-director/SKILL.md` and `.claude/skills/premium-matcha-brand-director/SKILL.md` — these auto-load when relevant work is being done. Two rules to never break:
+
+1. Single RAF loop. The Lenis provider already wires `gsap.ticker` → `lenis.raf`. Never start a second `requestAnimationFrame` loop.
+2. Use `@gsap/react`'s `useGSAP()` and `gsap.matchMedia()` — never `ScrollTrigger.matchMedia()` or bare `useEffect` with manual `ctx.revert()`.
+
+## Owner assets
+
+`docs/owner-asset-checklist.md` lists everything we need from the brand owner. Send it before iterating on real photography.
