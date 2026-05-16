@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
-import { gsap } from "@/lib/gsap";
+import { gsap, ScrollTrigger } from "@/lib/gsap";
 import { motionEase, motionScrub, motionOpacity } from "@/lib/motion";
 
 export function HeroPinned() {
@@ -38,6 +38,24 @@ export function HeroPinned() {
       mm.add(
         "(min-width: 768px) and (prefers-reduced-motion: no-preference)",
         () => {
+          // Pinned-entry settle pulse — see motion-audit.md
+          ScrollTrigger.create({
+            trigger: sectionRef.current,
+            start: "top top",
+            onEnter: () => {
+              gsap.fromTo(
+                sectionRef.current,
+                { scale: 0.995 },
+                {
+                  scale: 1,
+                  duration: 0.12,
+                  ease: motionEase.settle,
+                  overwrite: "auto",
+                },
+              );
+            },
+          });
+
           const tl = gsap.timeline({
             scrollTrigger: {
               trigger: sectionRef.current,

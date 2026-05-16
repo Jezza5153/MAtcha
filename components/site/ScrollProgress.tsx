@@ -1,28 +1,49 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { useLenis } from "@/components/providers/LenisProvider";
 
 export function ScrollProgress() {
   const barRef = useRef<HTMLDivElement>(null);
+  const lenis = useLenis();
 
   useEffect(() => {
-    let raf = 0;
+    if (!lenis) {
+      // Fallback for reduced-motion (Lenis is disabled): rAF poll once on mount
+      const update = () => {
+        const max =
+          document.documentElement.scrollHeight - window.innerHeight || 1;
+        const ratio = Math.min(1, Math.max(0, window.scrollY / max));
+        if (barRef.current) {
+          barRef.current.style.transform = `scaleX(${ratio})`;
+        }
+      };
+      update();
+      window.addEventListener("scroll", update, { passive: true });
+      return () => window.removeEventListener("scroll", update);
+    }
+
     let last = -1;
 
-    const tick = () => {
-      const max =
-        document.documentElement.scrollHeight - window.innerHeight || 1;
-      const ratio = Math.min(1, Math.max(0, window.scrollY / max));
+    const onScroll = ({
+      scroll,
+      limit,
+    }: {
+      scroll: number;
+      limit: number;
+    }) => {
+      const ratio = limit > 0 ? Math.min(1, Math.max(0, scroll / limit)) : 0;
       if (Math.abs(ratio - last) > 0.001 && barRef.current) {
         last = ratio;
         barRef.current.style.transform = `scaleX(${ratio})`;
       }
-      raf = requestAnimationFrame(tick);
     };
 
-    raf = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(raf);
-  }, []);
+    lenis.on("scroll", onScroll);
+    return () => {
+      lenis.off("scroll", onScroll);
+    };
+  }, [lenis]);
 
   return (
     <div

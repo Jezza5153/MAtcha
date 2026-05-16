@@ -50,7 +50,7 @@ export const motionOpacity = {
 
 export const motionScrub = {
   hero: 1.15,
-  story: 1,
+  story: 1.2,
   image: 0.8,
   micro: 0.4,
 } as const;

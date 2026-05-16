@@ -1,17 +1,29 @@
 "use client";
 
-import { useEffect, type ReactNode } from "react";
+import {
+  createContext,
+  useContext,
+  useEffect,
+  useState,
+  type ReactNode,
+} from "react";
 import Lenis from "lenis";
 import { gsap, ScrollTrigger } from "@/lib/gsap";
 
+const LenisContext = createContext<Lenis | null>(null);
+
+export const useLenis = (): Lenis | null => useContext(LenisContext);
+
 export function LenisProvider({ children }: { children: ReactNode }) {
+  const [lenis, setLenis] = useState<Lenis | null>(null);
+
   useEffect(() => {
     const reduce =
       typeof window !== "undefined" &&
       window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (reduce) return;
 
-    const lenis = new Lenis({
+    const instance = new Lenis({
       autoRaf: false,
       lerp: 0.07,
       duration: 1.4,
@@ -21,27 +33,30 @@ export function LenisProvider({ children }: { children: ReactNode }) {
       syncTouch: true,
     });
 
+    setLenis(instance);
+
     if (process.env.NODE_ENV === "development") {
-      (window as unknown as { __lenis?: Lenis }).__lenis = lenis;
+      (window as unknown as { __lenis?: Lenis }).__lenis = instance;
     }
 
     const onScroll = () => ScrollTrigger.update();
-    lenis.on("scroll", onScroll);
+    instance.on("scroll", onScroll);
 
-    const tickerCallback = (time: number) => lenis.raf(time * 1000);
+    const tickerCallback = (time: number) => instance.raf(time * 1000);
     gsap.ticker.add(tickerCallback);
     gsap.ticker.lagSmoothing(0);
     gsap.ticker.wake();
 
     return () => {
       gsap.ticker.remove(tickerCallback);
-      lenis.off("scroll", onScroll);
-      lenis.destroy();
+      instance.off("scroll", onScroll);
+      instance.destroy();
+      setLenis(null);
       if (process.env.NODE_ENV === "development") {
         delete (window as unknown as { __lenis?: Lenis }).__lenis;
       }
     };
   }, []);
 
-  return <>{children}</>;
+  return <LenisContext.Provider value={lenis}>{children}</LenisContext.Provider>;
 }

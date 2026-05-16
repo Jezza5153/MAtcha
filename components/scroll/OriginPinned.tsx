@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
-import { gsap } from "@/lib/gsap";
+import { gsap, ScrollTrigger } from "@/lib/gsap";
 import { motionEase, motionScrub } from "@/lib/motion";
 
 const beats = [
@@ -46,6 +46,24 @@ export function OriginPinned() {
           // Initial state: beat 0 visible at full opacity, others hidden
           gsap.set(els[0], { opacity: 1, y: 0 });
           gsap.set(els.slice(1), { opacity: 0, y: 10 });
+
+          // Pinned-entry settle pulse — see motion-audit.md
+          ScrollTrigger.create({
+            trigger: sectionRef.current,
+            start: "top top",
+            onEnter: () => {
+              gsap.fromTo(
+                sectionRef.current,
+                { scale: 0.995 },
+                {
+                  scale: 1,
+                  duration: 0.12,
+                  ease: motionEase.settle,
+                  overwrite: "auto",
+                },
+              );
+            },
+          });
 
           const tl = gsap.timeline({
             scrollTrigger: {

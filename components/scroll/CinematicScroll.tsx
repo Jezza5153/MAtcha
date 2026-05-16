@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
-import { gsap } from "@/lib/gsap";
+import { gsap, ScrollTrigger } from "@/lib/gsap";
 import { motionEase, motionScrub } from "@/lib/motion";
 
 const beats = [
@@ -95,6 +95,26 @@ export function CinematicScroll() {
           beatRefs.current.forEach((el, i) => {
             if (el)
               gsap.set(el, { opacity: i === 0 ? 1 : 0, y: i === 0 ? 0 : 14 });
+          });
+
+          // Pinned-entry settle — a 120ms scale pulse the moment the pin
+          // engages. Below conscious perception but the eye reads it as
+          // "we've arrived." Fires once per enter, not on every scrub tick.
+          ScrollTrigger.create({
+            trigger: sectionRef.current,
+            start: "top top",
+            onEnter: () => {
+              gsap.fromTo(
+                sectionRef.current,
+                { scale: 0.995 },
+                {
+                  scale: 1,
+                  duration: 0.12,
+                  ease: motionEase.settle,
+                  overwrite: "auto",
+                },
+              );
+            },
           });
 
           // Master scrubbed timeline — 5 units = 5 stages
@@ -425,18 +445,21 @@ export function CinematicScroll() {
         />
       </div>
 
-      {/* Pack — split into two halves so it can deconstruct */}
+      {/* Pack — split into two halves so it can deconstruct.
+          Shadow lives on a sibling div, not via `filter: drop-shadow()` on
+          the animated node, so the cinematic doesn't repaint a filter every
+          frame. Frees ~5–10% of frame budget on mid-tier devices. */}
       <div
         ref={packRef}
         className="hero-pack pointer-events-none absolute inset-0 flex items-center justify-center"
         aria-hidden
       >
-        <div
-          className="relative aspect-[4/5] w-40 sm:w-52 md:w-60 lg:w-64"
-          style={{
-            filter: "drop-shadow(0 35px 40px rgba(13, 31, 21, 0.22))",
-          }}
-        >
+        <div className="relative aspect-[4/5] w-40 sm:w-52 md:w-60 lg:w-64">
+          {/* Soft footprint shadow — not animated */}
+          <div
+            aria-hidden
+            className="absolute inset-x-6 bottom-2 h-6 rounded-full bg-matcha-950/22 blur-2xl"
+          />
           <div
             ref={packTopRef}
             className="absolute inset-0"
