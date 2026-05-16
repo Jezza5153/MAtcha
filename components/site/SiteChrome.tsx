@@ -11,9 +11,15 @@ export function SiteChrome() {
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 md:px-10">
         <Link
           href="/"
-          className="pointer-events-auto font-display text-base tracking-tight text-matcha-950 mix-blend-multiply hover:opacity-70 transition-opacity sm:text-lg"
+          aria-label="Freddo Matcha — home"
+          className="pointer-events-auto inline-flex items-baseline gap-1.5 font-display text-base text-matcha-950 mix-blend-multiply transition-opacity hover:opacity-70 sm:text-lg"
+          style={{ letterSpacing: "-0.012em", fontVariationSettings: "'opsz' 144, 'SOFT' 30" }}
         >
-          Freddo Matcha
+          <span>Freddo Matcha</span>
+          <span
+            aria-hidden
+            className="h-1.5 w-1.5 rounded-full bg-matcha-500"
+          />
         </Link>
 
         <button

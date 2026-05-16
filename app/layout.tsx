@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Fraunces, Inter } from "next/font/google";
 import "./globals.css";
 import { LenisProvider } from "@/components/providers/LenisProvider";
 import { CartProvider } from "@/components/providers/CartProvider";
@@ -6,7 +7,21 @@ import { SiteChrome } from "@/components/site/SiteChrome";
 import { SiteFooter } from "@/components/site/SiteFooter";
 import { MiniCart } from "@/components/site/MiniCart";
 import { StickyShopCTA } from "@/components/site/StickyShopCTA";
+import { ScrollProgress } from "@/components/site/ScrollProgress";
 import { AnalyticsScripts } from "@/components/site/AnalyticsScripts";
+
+const fraunces = Fraunces({
+  subsets: ["latin"],
+  variable: "--font-fraunces",
+  display: "swap",
+  axes: ["opsz", "SOFT", "WONK"],
+});
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
+});
 
 const siteUrl = "https://freddomatcha.com";
 const description =
@@ -48,10 +63,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="antialiased">
+    <html
+      lang="en"
+      className={`${fraunces.variable} ${inter.variable} antialiased`}
+    >
       <body className="min-h-screen bg-cream-50 text-ink">
         <LenisProvider>
           <CartProvider>
+            <ScrollProgress />
             <SiteChrome />
             {children}
             <StickyShopCTA />

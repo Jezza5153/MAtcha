@@ -28,8 +28,8 @@
 }
 
 @theme inline {
-  --font-display: "Fraunces", "Iowan Old Style", "Times New Roman", serif;
-  --font-body: "Inter", "Avenir Next", "Segoe UI", system-ui, sans-serif;
+  --font-display: var(--font-fraunces), "Iowan Old Style", "Times New Roman", serif;
+  --font-body: var(--font-inter), "Avenir Next", "Segoe UI", system-ui, sans-serif;
 }
 
 html,
@@ -74,9 +74,35 @@ body {
   text-rendering: optimizeLegibility;
 }
 
+/* Display type — Fraunces variable axes for optical refinement at headline sizes */
+.font-display,
+h1,
+h2 {
+  font-variation-settings: "opsz" 144, "SOFT" 30, "WONK" 0;
+  font-feature-settings: "kern", "ss01", "calt", "liga";
+}
+
+h3,
+h4 {
+  font-variation-settings: "opsz" 72, "SOFT" 30, "WONK" 0;
+}
+
 ::selection {
   background: var(--color-matcha-700);
   color: var(--color-cream-50);
+}
+
+/* Branded focus ring — replaces default browser outline globally */
+:focus-visible {
+  outline: 2px solid var(--color-matcha-700);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Anchor links: subtle underline rendering */
+a:where(:not([class*="rounded"]):not([class*="border"])) {
+  text-underline-offset: 0.18em;
+  text-decoration-thickness: 1px;
 }
 
 .hero-cloud,

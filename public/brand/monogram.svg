@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="Freddo Matcha monogram">
+  <rect width="256" height="256" rx="56" fill="#0d1f15"/>
+  <!-- F -->
+  <path
+    d="M 84 56 L 188 56 L 188 80 L 116 80 L 116 112 L 168 112 L 168 132 L 116 132 L 116 200 L 84 200 Z"
+    fill="#fbf7ec"
+  />
+  <!-- Green dot accent — hints at matcha + brand mark -->
+  <circle cx="180" cy="200" r="9" fill="#95b067"/>
+</svg>

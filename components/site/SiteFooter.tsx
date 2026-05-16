@@ -10,7 +10,16 @@ export function SiteFooter() {
       <div className="mx-auto max-w-7xl px-6 py-16 md:px-10">
         <div className="grid gap-12 md:grid-cols-12">
           <div className="md:col-span-5">
-            <p className="font-display text-2xl text-cream-50">Freddo Matcha</p>
+            <p
+              className="inline-flex items-baseline gap-2 font-display text-3xl text-cream-50"
+              style={{ letterSpacing: "-0.015em", fontVariationSettings: "'opsz' 144, 'SOFT' 30" }}
+            >
+              <span>Freddo Matcha</span>
+              <span
+                aria-hidden
+                className="h-2 w-2 rounded-full bg-matcha-400"
+              />
+            </p>
             <p className="mt-4 max-w-sm font-body text-sm leading-relaxed text-cream-100/75">
               Single-origin Japanese matcha powder. Italian restraint, Japanese
               sourcing. Pre-orders opening when supplier and lot are locked.
