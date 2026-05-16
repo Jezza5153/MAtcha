@@ -95,7 +95,7 @@ export function WhiskingScene() {
           <h2 className="mt-3 font-display text-4xl leading-[1.08] tracking-tight text-matcha-950 sm:text-5xl md:text-6xl">
             The chasen does the work.
             <br />
-            <em className="not-italic text-matcha-800">You're guiding it.</em>
+            <em className="not-italic text-matcha-800">You’re guiding it.</em>
           </h2>
 
           <ol className="mt-12 space-y-6">

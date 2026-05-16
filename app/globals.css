@@ -28,15 +28,43 @@
 }
 
 @theme inline {
-  /* Fonts — values come from next/font on the <html> element */
-  --font-display: var(--font-fraunces);
-  --font-body: var(--font-inter);
+  --font-display: "Fraunces", "Iowan Old Style", "Times New Roman", serif;
+  --font-body: "Inter", "Avenir Next", "Segoe UI", system-ui, sans-serif;
 }
 
 html,
 body {
   background: var(--color-cream-50);
   color: var(--color-ink);
+}
+
+.freddo-ambient {
+  position: relative;
+  isolation: isolate;
+}
+
+.freddo-ambient::before {
+  content: "";
+  position: fixed;
+  inset: -20% -10% auto;
+  height: 70vh;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 20% 20%, rgb(111 147 66 / 30%), transparent 40%),
+    radial-gradient(circle at 85% 35%, rgb(63 114 66 / 20%), transparent 42%),
+    radial-gradient(circle at 50% 0%, rgb(236 240 216 / 55%), transparent 55%);
+  filter: blur(36px);
+  animation: freddoDrift 16s ease-in-out infinite alternate;
+}
+
+@keyframes freddoDrift {
+  from {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  to {
+    transform: translate3d(0, 3%, 0) scale(1.06);
+  }
 }
 
 body {
@@ -59,6 +87,14 @@ body {
   transform: translateZ(0);
 }
 
+.freddo-card {
+  transition: transform 600ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.freddo-card:hover {
+  transform: translateY(-4px);
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -75,5 +111,9 @@ body {
   .motion-layer {
     will-change: auto;
     transform: none;
+  }
+
+  .freddo-ambient::before {
+    animation: none;
   }
 }

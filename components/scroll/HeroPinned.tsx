@@ -166,12 +166,12 @@ export function HeroPinned() {
       <div className="relative z-10 mx-auto flex h-full max-w-6xl flex-col items-center justify-between px-6 pt-20 pb-14 sm:pt-24 sm:pb-20 md:px-10">
         <div ref={headlineRef} className="text-center">
           <p className="mb-4 font-body text-[0.7rem] uppercase tracking-[0.32em] text-matcha-700">
-            Single origin · Uji, Japan
+            FREDDOMATCHA · Single origin Uji
           </p>
           <h1 className="font-display text-[2.6rem] leading-[1.04] tracking-tight text-matcha-950 sm:text-6xl md:text-[5rem]">
-            Ceremonial-grade matcha,
+            FREDDOMATCHA ceremonial,
             <br />
-            <em className="not-italic text-matcha-800">stone-ground slowly.</em>
+            <em className="not-italic text-matcha-800">future ritual in green.</em>
           </h1>
         </div>
 
@@ -199,7 +199,7 @@ export function HeroPinned() {
             ref={sublineRef}
             className="max-w-md font-body text-base text-ink-soft sm:text-lg"
           >
-            From shaded leaf to morning ritual.
+            A high-end matcha experience blending Japanese restraint with editorial futurism.
           </p>
           <a
             href="#products"

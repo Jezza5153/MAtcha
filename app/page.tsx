@@ -5,7 +5,7 @@ import { products, formatPrice } from "@/lib/products";
 
 export default function Home() {
   return (
-    <main>
+    <main className="freddo-ambient">
       <CinematicScroll />
 
       <section
@@ -18,7 +18,7 @@ export default function Home() {
             06 · The shop
           </p>
           <h2 className="mt-3 max-w-2xl font-display text-4xl leading-[1.1] tracking-tight text-matcha-950 sm:text-5xl">
-            Three ways in.
+            The first FreddoMatcha blends.
           </h2>
           <ul className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {products.map((p) => (
@@ -73,7 +73,7 @@ export default function Home() {
           {[
             {
               k: "Origin",
-              v: "Single-origin Uji, Japan. Named-farm sourcing.",
+              v: "Single-origin Uji, Japan. Named-farm ceremonial sourcing.",
             },
             {
               k: "Lab tested",
@@ -81,7 +81,7 @@ export default function Home() {
             },
             {
               k: "Shipping",
-              v: "EU shipping in 1–3 days. Free over €60.",
+              v: "Private client delivery concierge launches with checkout.",
             },
           ].map((t) => (
             <div key={t.k}>
@@ -93,6 +93,37 @@ export default function Home() {
               </p>
             </div>
           ))}
+        </div>
+      </section>
+
+      <section className="bg-matcha-950 px-6 py-24 text-cream-50 sm:py-32 md:px-10">
+        <div className="mx-auto max-w-6xl">
+          <p className="font-body text-[0.7rem] uppercase tracking-[0.32em] text-matcha-300">
+            07 · Visual concept pack
+          </p>
+          <h2 className="mt-3 max-w-3xl font-display text-4xl leading-[1.08] tracking-tight sm:text-5xl">
+            Freshly generated art direction for a high-end launch.
+          </h2>
+          <div className="mt-12 grid gap-6 md:grid-cols-3">
+            {[
+              ["/images/freddo-neon-garden.svg", "Neon Garden Hero"],
+              ["/images/freddo-origin-grid.svg", "Origin Grid Storyboard"],
+              ["/images/freddo-lab-disk.svg", "Ceremonial Lab Emblem"],
+            ].map(([src, label]) => (
+              <figure key={src} className="freddo-card overflow-hidden rounded-2xl border border-matcha-300/30 bg-matcha-900/35 p-3">
+                <div className="relative aspect-square w-full overflow-hidden rounded-xl">
+                  <Image
+                    src={src}
+                    alt={label}
+                    fill
+                    sizes="(min-width: 768px) 33vw, 100vw"
+                    className="object-cover"
+                  />
+                </div>
+                <figcaption className="px-1 pt-3 font-body text-sm text-cream-100/90">{label}</figcaption>
+              </figure>
+            ))}
+          </div>
         </div>
       </section>
 
