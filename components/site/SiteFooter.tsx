@@ -41,7 +41,8 @@ export function SiteFooter() {
           </FooterColumn>
 
           <FooterColumn title="Brand">
-            <FooterLink href="#sourcing">Sourcing</FooterLink>
+            <FooterLink href="/story">Our story</FooterLink>
+            <FooterLink href="/#sourcing">Sourcing</FooterLink>
             <FooterLink href="#buy">Ritual</FooterLink>
             <FooterLink href="/journal" disabled>
               Journal · soon

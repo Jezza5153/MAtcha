@@ -29,7 +29,7 @@ export function MobileHero() {
           <span aria-hidden>→</span>
         </a>
         <a
-          href="#story"
+          href="/story"
           className="inline-flex items-center gap-2 rounded-full border border-matcha-950/20 px-6 py-3 font-body text-xs font-medium uppercase tracking-[0.2em] text-matcha-950"
         >
           Our story

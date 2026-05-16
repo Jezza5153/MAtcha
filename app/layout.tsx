@@ -8,6 +8,7 @@ import { SiteFooter } from "@/components/site/SiteFooter";
 import { MiniCart } from "@/components/site/MiniCart";
 import { StickyShopCTA } from "@/components/site/StickyShopCTA";
 import { ScrollProgress } from "@/components/site/ScrollProgress";
+import { TrustStrip } from "@/components/site/TrustStrip";
 import { AnalyticsScripts } from "@/components/site/AnalyticsScripts";
 
 const fraunces = Fraunces({
@@ -68,6 +69,7 @@ export default function RootLayout({
       className={`${fraunces.variable} ${inter.variable} antialiased`}
     >
       <body className="min-h-screen bg-cream-50 text-ink">
+        <TrustStrip />
         <LenisProvider>
           <CartProvider>
             <ScrollProgress />
