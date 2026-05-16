@@ -9,6 +9,8 @@ import { ProvenanceTable } from "@/components/product/ProvenanceTable";
 import { PreparationGuide } from "@/components/product/PreparationGuide";
 import { ProductFAQ } from "@/components/product/ProductFAQ";
 import { RelatedProducts } from "@/components/product/RelatedProducts";
+import { ReviewsPlaceholder } from "@/components/product/ReviewsPlaceholder";
+import { SubscribeUpsell } from "@/components/product/SubscribeUpsell";
 
 type Params = { slug: ProductSlug };
 
@@ -109,6 +111,15 @@ export default async function ProductPage({
       {product.provenance && <ProvenanceTable provenance={product.provenance} />}
 
       <ShippingReturnsCard />
+
+      {product.slug === "everyday-matcha" && (
+        <SubscribeUpsell
+          basePriceCents={product.priceCents}
+          productName={product.name}
+        />
+      )}
+
+      <ReviewsPlaceholder />
 
       <ProductFAQ items={product.faq} />
 
