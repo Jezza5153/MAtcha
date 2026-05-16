@@ -6,6 +6,7 @@ import { SiteChrome } from "@/components/site/SiteChrome";
 import { SiteFooter } from "@/components/site/SiteFooter";
 import { MiniCart } from "@/components/site/MiniCart";
 import { StickyShopCTA } from "@/components/site/StickyShopCTA";
+import { AnalyticsScripts } from "@/components/site/AnalyticsScripts";
 
 const siteUrl = "https://freddomatcha.com";
 const description =
@@ -58,6 +59,7 @@ export default function RootLayout({
             <SiteFooter />
           </CartProvider>
         </LenisProvider>
+        <AnalyticsScripts />
       </body>
     </html>
   );

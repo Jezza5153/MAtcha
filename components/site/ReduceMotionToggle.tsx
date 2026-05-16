@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { EVENTS, track } from "@/lib/analytics";
 
 const STORAGE_KEY = "freddo:reduce-motion";
 
@@ -18,6 +19,7 @@ export function ReduceMotionToggle() {
     setEnabled(next);
     window.localStorage.setItem(STORAGE_KEY, next ? "1" : "0");
     document.documentElement.classList.toggle("force-reduce-motion", next);
+    track(EVENTS.ToggledReduceMotion, { enabled: next });
   };
 
   return (

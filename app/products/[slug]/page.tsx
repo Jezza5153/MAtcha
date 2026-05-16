@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { getProduct, productSlugs, formatPrice } from "@/lib/products";
 import type { ProductSlug } from "@/lib/products";
 import { ProductHero } from "@/components/product/ProductHero";
+import { ProductTracker } from "@/components/product/ProductTracker";
 import { TasteProfile } from "@/components/product/TasteProfile";
 import { ProvenanceTable } from "@/components/product/ProvenanceTable";
 import { PreparationGuide } from "@/components/product/PreparationGuide";
@@ -73,6 +74,11 @@ export default async function ProductPage({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
+      <ProductTracker
+        slug={product.slug}
+        name={product.name}
+        priceCents={product.priceCents}
+      />
       <ProductHero product={product} />
 
       <section

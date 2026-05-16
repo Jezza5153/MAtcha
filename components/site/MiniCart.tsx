@@ -3,6 +3,7 @@
 import { useEffect } from "react";
 import { useCart, type CartLine } from "@/components/providers/CartProvider";
 import { formatPrice } from "@/lib/products";
+import { EmailCapture } from "./EmailCapture";
 
 export function MiniCart() {
   const cart = useCart();
@@ -55,31 +56,11 @@ export function MiniCart() {
           <p className="font-body text-xs uppercase tracking-[0.2em] text-ink-soft">
             Checkout
           </p>
-          <p className="mt-2 font-body text-sm leading-relaxed text-matcha-950">
+          <p className="mt-2 mb-4 font-body text-sm leading-relaxed text-matcha-950">
             Checkout opens when supplier and lot are locked. Pre-orders coming
             soon. Drop your email below to be first in line.
           </p>
-          <form
-            className="mt-4 flex gap-2"
-            onSubmit={(e) => {
-              e.preventDefault();
-              alert("Email capture lands in PR-7. Thanks for testing.");
-            }}
-          >
-            <input
-              type="email"
-              required
-              placeholder="you@somewhere"
-              className="flex-1 rounded-full border border-matcha-900/15 bg-cream-100 px-4 py-2.5 font-body text-sm text-matcha-950 placeholder:text-ink-soft/60 focus:outline-2 focus:outline-offset-2 focus:outline-matcha-700"
-              aria-label="Email address"
-            />
-            <button
-              type="submit"
-              className="rounded-full bg-matcha-950 px-5 py-2.5 font-body text-xs font-medium uppercase tracking-[0.2em] text-cream-50 hover:bg-matcha-900"
-            >
-              Notify me
-            </button>
-          </form>
+          <EmailCapture source="mini-cart" variant="light" />
         </footer>
       </aside>
     </>

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ReduceMotionToggle } from "./ReduceMotionToggle";
+import { EmailCapture } from "./EmailCapture";
 
 export function SiteFooter() {
   const year = new Date().getFullYear();
@@ -14,6 +15,9 @@ export function SiteFooter() {
               Single-origin Japanese matcha powder. Italian restraint, Japanese
               sourcing. Pre-orders opening when supplier and lot are locked.
             </p>
+            <div className="mt-6 max-w-sm">
+              <EmailCapture source="footer" variant="dark" />
+            </div>
           </div>
 
           <FooterColumn title="Shop">
