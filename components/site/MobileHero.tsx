@@ -38,8 +38,8 @@ export function MobileHero() {
 
       <div className="relative mt-12 aspect-[4/5] w-full overflow-hidden rounded-3xl bg-cream-100">
         <Image
-          src="/images/matcha-pack.png"
-          alt="Freddo Matcha pack — placeholder photography"
+          src="/brand/pack-ceremoniale.svg"
+          alt="Freddo Ceremoniale tin — illustrated mockup"
           fill
           priority
           sizes="100vw"

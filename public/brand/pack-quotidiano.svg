@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 320" role="img" aria-label="Freddo Quotidiano pouch">
+  <defs>
+    <linearGradient id="quotPouchBody" x1="0" x2="1" y1="0" y2="0">
+      <stop offset="0" stop-color="#ebe1c5"/>
+      <stop offset="0.18" stop-color="#f4eddb"/>
+      <stop offset="0.5" stop-color="#fbf7ec"/>
+      <stop offset="0.82" stop-color="#f4eddb"/>
+      <stop offset="1" stop-color="#d8d0bf"/>
+    </linearGradient>
+    <linearGradient id="quotSeal" x1="0" x2="1" y1="0" y2="0">
+      <stop offset="0" stop-color="#a89e89"/>
+      <stop offset="0.5" stop-color="#d8d0bf"/>
+      <stop offset="1" stop-color="#a89e89"/>
+    </linearGradient>
+    <linearGradient id="quotBand" x1="0" x2="1" y1="0" y2="0">
+      <stop offset="0" stop-color="#1d4329"/>
+      <stop offset="0.5" stop-color="#2c5a36"/>
+      <stop offset="1" stop-color="#14301f"/>
+    </linearGradient>
+    <radialGradient id="quotShadow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#0d1f15" stop-opacity="0.3"/>
+      <stop offset="1" stop-color="#0d1f15" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Floor shadow -->
+  <ellipse cx="120" cy="298" rx="76" ry="7" fill="url(#quotShadow)"/>
+
+  <!-- Top heat-seal strip (slightly waved edge) -->
+  <path d="M 64 30
+           Q 80 26 96 30
+           Q 112 34 128 30
+           Q 144 26 160 30
+           Q 176 34 178 30
+           L 178 46
+           L 64 46 Z"
+        fill="url(#quotSeal)"/>
+
+  <!-- Pinch marks on seal -->
+  <line x1="80" y1="36" x2="80" y2="42" stroke="#8a8170" stroke-width="0.5"/>
+  <line x1="100" y1="36" x2="100" y2="42" stroke="#8a8170" stroke-width="0.5"/>
+  <line x1="120" y1="36" x2="120" y2="42" stroke="#8a8170" stroke-width="0.5"/>
+  <line x1="140" y1="36" x2="140" y2="42" stroke="#8a8170" stroke-width="0.5"/>
+  <line x1="160" y1="36" x2="160" y2="42" stroke="#8a8170" stroke-width="0.5"/>
+
+  <!-- Pouch body — slightly tapered, stand-up shape -->
+  <path d="M 62 46
+           L 178 46
+           L 184 290
+           Q 184 296 178 296
+           L 62 296
+           Q 56 296 56 290 Z"
+        fill="url(#quotPouchBody)"/>
+
+  <!-- Subtle highlight strip on the left for matte feel -->
+  <path d="M 70 50 L 74 290" stroke="#fbf7ec" stroke-opacity="0.5" stroke-width="2"/>
+
+  <!-- Mid-tone band (Quotidiano's differentiator) -->
+  <rect x="56" y="138" width="128" height="68" fill="url(#quotBand)"/>
+
+  <!-- Wordmark on band -->
+  <text x="120" y="164" text-anchor="middle"
+        font-family="Fraunces, 'Iowan Old Style', 'Times New Roman', serif"
+        font-size="14" letter-spacing="-0.01em" fill="#fbf7ec">Freddo</text>
+  <text x="120" y="184" text-anchor="middle"
+        font-family="Fraunces, 'Iowan Old Style', 'Times New Roman', serif"
+        font-size="14" letter-spacing="-0.01em" fill="#fbf7ec">Matcha</text>
+  <text x="120" y="198" text-anchor="middle"
+        font-family="Fraunces, 'Iowan Old Style', 'Times New Roman', serif"
+        font-size="9" font-style="italic" fill="#d6e3b8">Quotidiano</text>
+
+  <!-- Proof zone below the band -->
+  <text x="120" y="226" text-anchor="middle"
+        font-family="Inter, system-ui, sans-serif"
+        font-size="5" letter-spacing="0.22em" fill="#2c5a36">SINGLE-ORIGIN · JAPAN</text>
+  <text x="120" y="236" text-anchor="middle"
+        font-family="Inter, system-ui, sans-serif"
+        font-size="5" letter-spacing="0.22em" fill="#4a5247" opacity="0.8">50G NET WEIGHT</text>
+
+  <!-- Brand accent dot -->
+  <circle cx="120" cy="272" r="2.5" fill="#95b067"/>
+</svg>

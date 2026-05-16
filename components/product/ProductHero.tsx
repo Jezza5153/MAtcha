@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import type { Product } from "@/lib/products";
-import { formatPrice } from "@/lib/products";
+import { formatPrice, packImageFor } from "@/lib/products";
 import { useCart } from "@/components/providers/CartProvider";
 
 export function ProductHero({ product }: { product: Product }) {
@@ -16,12 +16,12 @@ export function ProductHero({ product }: { product: Product }) {
       <div className="mx-auto grid max-w-6xl items-center gap-10 md:grid-cols-2 md:gap-16">
         <div className="relative aspect-square w-full overflow-hidden rounded-3xl bg-cream-100">
           <Image
-            src="/images/matcha-pack.png"
-            alt={`${product.name} — placeholder photography`}
+            src={packImageFor(product.slug)}
+            alt={`${product.name} — illustrated mockup`}
             fill
             priority
             sizes="(min-width: 768px) 50vw, 100vw"
-            className="object-contain p-10"
+            className="object-contain p-12"
           />
         </div>
 

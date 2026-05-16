@@ -4,7 +4,7 @@ import { BuyClose } from "@/components/scroll/BuyClose";
 import { SkipStoryLink } from "@/components/site/SkipStoryLink";
 import { MobileHero } from "@/components/site/MobileHero";
 import { MobileStoryCards } from "@/components/site/MobileStoryCards";
-import { products, formatPrice } from "@/lib/products";
+import { products, formatPrice, packImageFor } from "@/lib/products";
 import Link from "next/link";
 
 export default function Home() {
@@ -44,13 +44,13 @@ export default function Home() {
                   href={`/products/${p.slug}`}
                   className="flex flex-1 flex-col"
                 >
-                  <div className="relative aspect-[4/5] w-full overflow-hidden rounded-xl bg-matcha-100">
+                  <div className="relative aspect-[4/5] w-full overflow-hidden rounded-xl bg-cream-50">
                     <Image
-                      src="/images/matcha-pack.png"
-                      alt={p.name}
+                      src={packImageFor(p.slug)}
+                      alt={`${p.name} — illustrated mockup`}
                       fill
                       sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-                      className="object-contain p-6 transition-transform duration-500 group-hover:-translate-y-1"
+                      className="object-contain p-8 transition-transform duration-500 group-hover:-translate-y-1"
                     />
                   </div>
                   <h3 className="mt-5 font-display text-2xl text-matcha-950">

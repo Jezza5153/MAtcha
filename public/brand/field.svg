@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-label="Tea field — editorial abstraction" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <!-- Soft sky -->
+    <linearGradient id="fieldSky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ecf0d8"/>
+      <stop offset="0.4" stop-color="#d6e3b8"/>
+      <stop offset="0.85" stop-color="#b9cc91"/>
+      <stop offset="1" stop-color="#95b067"/>
+    </linearGradient>
+
+    <!-- Far hills -->
+    <linearGradient id="fieldHillsFar" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#6f9342" stop-opacity="0.7"/>
+      <stop offset="1" stop-color="#6f9342" stop-opacity="0.45"/>
+    </linearGradient>
+
+    <!-- Mid field rows -->
+    <linearGradient id="fieldMid" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#3f7242"/>
+      <stop offset="0.5" stop-color="#2c5a36"/>
+      <stop offset="1" stop-color="#1d4329"/>
+    </linearGradient>
+
+    <!-- Foreground -->
+    <linearGradient id="fieldFore" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1d4329"/>
+      <stop offset="1" stop-color="#0d1f15"/>
+    </linearGradient>
+
+    <!-- Soft mist overlay -->
+    <linearGradient id="fieldMist" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fbf7ec" stop-opacity="0.45"/>
+      <stop offset="0.4" stop-color="#fbf7ec" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Sky -->
+  <rect width="1600" height="500" fill="url(#fieldSky)"/>
+
+  <!-- Far hills — silhouette layers -->
+  <path d="M 0 500 Q 200 460 380 478 Q 600 498 820 472 Q 1040 446 1240 480 Q 1420 510 1600 488 L 1600 540 L 0 540 Z" fill="url(#fieldHillsFar)"/>
+  <path d="M 0 510 Q 240 488 460 504 Q 700 522 920 500 Q 1140 480 1340 508 Q 1480 528 1600 514 L 1600 555 L 0 555 Z" fill="#3f7242" opacity="0.55"/>
+
+  <!-- Mid field — horizontal rows suggesting tea bushes -->
+  <rect width="1600" height="180" y="540" fill="url(#fieldMid)"/>
+  <g stroke="#0d1f15" stroke-opacity="0.32" stroke-width="1">
+    <line x1="0" y1="560" x2="1600" y2="560"/>
+    <line x1="0" y1="580" x2="1600" y2="580"/>
+    <line x1="0" y1="604" x2="1600" y2="604"/>
+    <line x1="0" y1="632" x2="1600" y2="632"/>
+    <line x1="0" y1="664" x2="1600" y2="664"/>
+    <line x1="0" y1="700" x2="1600" y2="700"/>
+  </g>
+
+  <!-- Subtle bush texture — dots scattered across rows -->
+  <g fill="#3f7242" opacity="0.5">
+    <circle cx="120" cy="592" r="2"/><circle cx="380" cy="592" r="2"/><circle cx="640" cy="592" r="2"/><circle cx="900" cy="592" r="2"/><circle cx="1160" cy="592" r="2"/><circle cx="1420" cy="592" r="2"/>
+    <circle cx="200" cy="620" r="2.5"/><circle cx="500" cy="620" r="2.5"/><circle cx="760" cy="620" r="2.5"/><circle cx="1020" cy="620" r="2.5"/><circle cx="1280" cy="620" r="2.5"/>
+    <circle cx="100" cy="652" r="2.8"/><circle cx="420" cy="652" r="2.8"/><circle cx="700" cy="652" r="2.8"/><circle cx="980" cy="652" r="2.8"/><circle cx="1280" cy="652" r="2.8"/><circle cx="1500" cy="652" r="2.8"/>
+    <circle cx="240" cy="690" r="3.2"/><circle cx="560" cy="690" r="3.2"/><circle cx="860" cy="690" r="3.2"/><circle cx="1160" cy="690" r="3.2"/><circle cx="1440" cy="690" r="3.2"/>
+  </g>
+
+  <!-- Foreground rows (closer, larger) -->
+  <rect width="1600" height="180" y="720" fill="url(#fieldFore)"/>
+  <g stroke="#0d1f15" stroke-opacity="0.55" stroke-width="1.5">
+    <line x1="0" y1="740" x2="1600" y2="740"/>
+    <line x1="0" y1="770" x2="1600" y2="770"/>
+    <line x1="0" y1="808" x2="1600" y2="808"/>
+    <line x1="0" y1="852" x2="1600" y2="852"/>
+  </g>
+  <g fill="#2c5a36" opacity="0.45">
+    <circle cx="160" cy="760" r="3.5"/><circle cx="540" cy="760" r="3.5"/><circle cx="940" cy="760" r="3.5"/><circle cx="1320" cy="760" r="3.5"/>
+    <circle cx="300" cy="800" r="4.5"/><circle cx="720" cy="800" r="4.5"/><circle cx="1100" cy="800" r="4.5"/><circle cx="1500" cy="800" r="4.5"/>
+    <circle cx="120" cy="844" r="5.2"/><circle cx="500" cy="844" r="5.2"/><circle cx="880" cy="844" r="5.2"/><circle cx="1260" cy="844" r="5.2"/>
+  </g>
+
+  <!-- Morning mist over the horizon -->
+  <rect width="1600" height="280" y="380" fill="url(#fieldMist)"/>
+</svg>

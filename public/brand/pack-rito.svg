@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 320" role="img" aria-label="Il Rito Starter Kit box">
+  <defs>
+    <linearGradient id="ritoBoxFront" x1="0" x2="1" y1="0" y2="0">
+      <stop offset="0" stop-color="#d8d0bf"/>
+      <stop offset="0.18" stop-color="#ebe1c5"/>
+      <stop offset="0.5" stop-color="#f4eddb"/>
+      <stop offset="0.82" stop-color="#ebe1c5"/>
+      <stop offset="1" stop-color="#c9bfa8"/>
+    </linearGradient>
+    <linearGradient id="ritoBoxTop" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fbf7ec"/>
+      <stop offset="1" stop-color="#d8d0bf"/>
+    </linearGradient>
+    <linearGradient id="ritoBoxSide" x1="0" x2="1" y1="0" y2="0">
+      <stop offset="0" stop-color="#a89e89"/>
+      <stop offset="1" stop-color="#c9bfa8"/>
+    </linearGradient>
+    <radialGradient id="ritoShadow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#0d1f15" stop-opacity="0.3"/>
+      <stop offset="1" stop-color="#0d1f15" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Floor shadow -->
+  <ellipse cx="120" cy="296" rx="86" ry="8" fill="url(#ritoShadow)"/>
+
+  <!-- 3/4 perspective box: front, top, right side -->
+
+  <!-- Right side panel -->
+  <path d="M 188 88
+           L 208 72
+           L 208 268
+           L 188 284 Z"
+        fill="url(#ritoBoxSide)"/>
+
+  <!-- Top panel -->
+  <path d="M 52 88
+           L 72 72
+           L 208 72
+           L 188 88 Z"
+        fill="url(#ritoBoxTop)"/>
+
+  <!-- Front panel -->
+  <rect x="52" y="88" width="136" height="196" fill="url(#ritoBoxFront)"/>
+
+  <!-- Kraft-paper texture lines (subtle horizontal grain) -->
+  <g stroke="#a89e89" stroke-opacity="0.18" stroke-width="0.5">
+    <line x1="58" y1="112" x2="184" y2="112"/>
+    <line x1="58" y1="138" x2="184" y2="138"/>
+    <line x1="58" y1="166" x2="184" y2="166"/>
+    <line x1="58" y1="196" x2="184" y2="196"/>
+    <line x1="58" y1="226" x2="184" y2="226"/>
+    <line x1="58" y1="254" x2="184" y2="254"/>
+  </g>
+
+  <!-- Twine line crossing horizontally near top -->
+  <line x1="52" y1="124" x2="188" y2="124" stroke="#5a4f3a" stroke-width="1" opacity="0.5"/>
+  <line x1="188" y1="124" x2="208" y2="108" stroke="#5a4f3a" stroke-width="1" opacity="0.5"/>
+  <!-- Small knot at right -->
+  <circle cx="188" cy="124" r="2.5" fill="#5a4f3a" opacity="0.65"/>
+
+  <!-- Stamped wordmark — looks pressed into the kraft -->
+  <text x="120" y="172" text-anchor="middle"
+        font-family="Fraunces, 'Iowan Old Style', 'Times New Roman', serif"
+        font-size="16" letter-spacing="-0.005em" fill="#14301f">Il Rito</text>
+
+  <!-- Italic descriptor -->
+  <text x="120" y="190" text-anchor="middle"
+        font-family="Fraunces, 'Iowan Old Style', 'Times New Roman', serif"
+        font-size="10" font-style="italic" fill="#2c5a36">starter kit</text>
+
+  <!-- Divider -->
+  <line x1="92" y1="204" x2="148" y2="204" stroke="#2c5a36" stroke-opacity="0.5" stroke-width="0.5"/>
+
+  <!-- Contents list -->
+  <text x="120" y="222" text-anchor="middle"
+        font-family="Inter, system-ui, sans-serif"
+        font-size="5" letter-spacing="0.22em" fill="#4a5247">BOWL · CHASEN · CHASHAKU</text>
+  <text x="120" y="232" text-anchor="middle"
+        font-family="Inter, system-ui, sans-serif"
+        font-size="5" letter-spacing="0.22em" fill="#4a5247">30G QUOTIDIANO</text>
+
+  <!-- Brand accent dot -->
+  <circle cx="120" cy="262" r="2.5" fill="#6f9342"/>
+</svg>

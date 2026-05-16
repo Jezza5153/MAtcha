@@ -231,3 +231,14 @@ export const formatPreparationLabel = (use: UsePreparation): string => {
       return "Baking";
   }
 };
+
+export const packImageFor = (slug: ProductSlug): string => {
+  switch (slug) {
+    case "ceremonial-matcha":
+      return "/brand/pack-ceremoniale.svg";
+    case "everyday-matcha":
+      return "/brand/pack-quotidiano.svg";
+    case "starter-kit":
+      return "/brand/pack-rito.svg";
+  }
+};

@@ -75,7 +75,7 @@ export function BuyClose() {
     >
       <div ref={bgRef} className="motion-layer absolute inset-0 -z-10">
         <Image
-          src="/images/matcha-lifestyle-hero.jpg"
+          src="/brand/field.svg"
           alt=""
           fill
           sizes="100vw"

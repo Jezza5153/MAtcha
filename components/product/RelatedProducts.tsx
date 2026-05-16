@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { products, formatPrice } from "@/lib/products";
+import { products, formatPrice, packImageFor } from "@/lib/products";
 import type { ProductSlug } from "@/lib/products";
 
 export function RelatedProducts({ currentSlug }: { currentSlug: ProductSlug }) {
@@ -30,9 +30,9 @@ export function RelatedProducts({ currentSlug }: { currentSlug: ProductSlug }) {
                 href={`/products/${p.slug}`}
                 className="flex flex-col md:flex-row md:items-center"
               >
-                <div className="relative aspect-square w-full overflow-hidden rounded-t-3xl bg-matcha-100 md:w-44 md:rounded-t-none md:rounded-l-3xl">
+                <div className="relative aspect-square w-full overflow-hidden rounded-t-3xl bg-cream-100 md:w-44 md:rounded-t-none md:rounded-l-3xl">
                   <Image
-                    src="/images/matcha-pack.png"
+                    src={packImageFor(p.slug)}
                     alt={p.name}
                     fill
                     sizes="(min-width: 768px) 200px, 100vw"

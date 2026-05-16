@@ -154,7 +154,7 @@ export function HeroPinned() {
         aria-hidden
       >
         <Image
-          src="/images/matcha-powder-cloud.png"
+          src="/brand/powder-cloud.svg"
           alt=""
           fill
           priority
@@ -183,8 +183,8 @@ export function HeroPinned() {
           <div ref={packRef} className="hero-pack relative">
             <div className="relative aspect-[4/5] w-44 sm:w-56 md:w-64 lg:w-72">
               <Image
-                src="/images/matcha-pack.png"
-                alt="Ceremonial matcha pack"
+                src="/brand/pack-ceremoniale.svg"
+                alt="Freddo Ceremoniale pack — illustrated mockup"
                 fill
                 priority
                 sizes="(min-width: 1024px) 288px, (min-width: 768px) 256px, (min-width: 640px) 224px, 176px"

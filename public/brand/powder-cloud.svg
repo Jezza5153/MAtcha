@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1200" role="img" aria-label="Matcha powder cloud" preserveAspectRatio="xMidYMid meet">
+  <defs>
+    <!-- Soft matcha-toned radial bloom -->
+    <radialGradient id="cloudCore" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#6f9342" stop-opacity="0.85"/>
+      <stop offset="0.18" stop-color="#95b067" stop-opacity="0.6"/>
+      <stop offset="0.45" stop-color="#b9cc91" stop-opacity="0.35"/>
+      <stop offset="0.75" stop-color="#d6e3b8" stop-opacity="0.12"/>
+      <stop offset="1" stop-color="#ecf0d8" stop-opacity="0"/>
+    </radialGradient>
+
+    <radialGradient id="cloudHalo" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#2c5a36" stop-opacity="0.4"/>
+      <stop offset="0.5" stop-color="#6f9342" stop-opacity="0.18"/>
+      <stop offset="1" stop-color="#6f9342" stop-opacity="0"/>
+    </radialGradient>
+
+    <radialGradient id="cloudWisp1" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#b9cc91" stop-opacity="0.45"/>
+      <stop offset="1" stop-color="#b9cc91" stop-opacity="0"/>
+    </radialGradient>
+
+    <radialGradient id="cloudWisp2" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#95b067" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#95b067" stop-opacity="0"/>
+    </radialGradient>
+
+    <filter id="cloudBlur">
+      <feGaussianBlur stdDeviation="14"/>
+    </filter>
+  </defs>
+
+  <!-- Outer halo for depth -->
+  <circle cx="600" cy="600" r="540" fill="url(#cloudHalo)" filter="url(#cloudBlur)"/>
+
+  <!-- Drifting wisps (offset for asymmetry — clouds aren't symmetric) -->
+  <ellipse cx="420" cy="520" rx="280" ry="200" fill="url(#cloudWisp1)" filter="url(#cloudBlur)"/>
+  <ellipse cx="780" cy="680" rx="260" ry="220" fill="url(#cloudWisp2)" filter="url(#cloudBlur)"/>
+  <ellipse cx="600" cy="440" rx="200" ry="160" fill="url(#cloudWisp1)" filter="url(#cloudBlur)"/>
+
+  <!-- Dense core last (on top) -->
+  <circle cx="600" cy="600" r="320" fill="url(#cloudCore)" filter="url(#cloudBlur)"/>
+</svg>
