@@ -122,8 +122,8 @@ export function GrindingScene() {
           <div className="relative aspect-[3/2] w-full overflow-hidden rounded-3xl">
             <div ref={imageRef} className="motion-layer absolute inset-0">
               <Image
-                src="/brand/powder-cloud.svg"
-                alt="Fine matcha powder texture — illustrated mockup"
+                src="/images/matcha-powder.jpg"
+                alt="Macro view of fine matcha powder"
                 fill
                 sizes="(min-width: 768px) 60vw, 100vw"
                 className="object-cover object-center"

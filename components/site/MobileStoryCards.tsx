@@ -12,19 +12,19 @@ const cards: Card[] = [
     eyebrow: "01 · Origin",
     title: "Single-origin Japan",
     body: "Shade-grown leaves from a partner farm we're locking before launch.",
-    image: "/brand/field.svg",
+    image: "/images/matcha-field.jpg",
   },
   {
     eyebrow: "02 · Slow",
     title: "Stone-fine powder",
     body: "Patient grinding for a low-bitterness, soft umami cup.",
-    image: "/brand/powder-cloud.svg",
+    image: "/images/matcha-powder.jpg",
   },
   {
     eyebrow: "03 · Ritual",
     title: "Whisk it your way",
     body: "Whisked solo with water, shaken iced, or poured into oat milk.",
-    image: "/brand/bowl.svg",
+    image: "/images/matcha-bowl.jpg",
   },
 ];
 

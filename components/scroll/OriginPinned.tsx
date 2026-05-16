@@ -138,11 +138,12 @@ export function OriginPinned() {
     >
       <div ref={imageRef} className="origin-image absolute inset-0">
         <Image
-          src="/brand/field.svg"
+          src="/images/matcha-field.jpg"
           alt=""
           fill
           sizes="100vw"
           className="object-cover object-center"
+          quality={75}
         />
       </div>
       <div

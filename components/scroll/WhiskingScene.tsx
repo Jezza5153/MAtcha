@@ -132,11 +132,11 @@ export function WhiskingScene() {
             className="motion-layer relative mx-auto aspect-square w-full max-w-md overflow-hidden rounded-full"
           >
             <Image
-              src="/brand/bowl.svg"
-              alt="Whisked matcha in a ceramic chawan — illustrated mockup"
+              src="/images/matcha-bowl.jpg"
+              alt="Whisked matcha in a hand-thrown ceramic bowl with bamboo chasen"
               fill
               sizes="(min-width: 768px) 40vw, 100vw"
-              className="object-contain object-center"
+              className="object-cover object-center"
             />
           </div>
         </div>

@@ -355,7 +355,7 @@ export function CinematicScroll() {
       {/* Field photo (deepest) */}
       <div ref={fieldRef} className="motion-layer absolute inset-0">
         <Image
-          src="/brand/field.svg"
+          src="/images/matcha-field.jpg"
           alt=""
           fill
           sizes="100vw"
@@ -375,7 +375,7 @@ export function CinematicScroll() {
         style={{ clipPath: "circle(0% at 50% 55%)" }}
       >
         <Image
-          src="/brand/bowl.svg"
+          src="/images/matcha-bowl.jpg"
           alt=""
           fill
           sizes="100vw"
@@ -401,7 +401,7 @@ export function CinematicScroll() {
         aria-hidden
       >
         <Image
-          src="/brand/powder-cloud.svg"
+          src="/images/matcha-powder-cloud.png"
           alt=""
           fill
           priority
@@ -417,7 +417,7 @@ export function CinematicScroll() {
         aria-hidden
       >
         <Image
-          src="/brand/powder-cloud.svg"
+          src="/images/matcha-powder-cloud.png"
           alt=""
           fill
           sizes="100vw"
@@ -443,7 +443,7 @@ export function CinematicScroll() {
             style={{ clipPath: "inset(0% 0% 50% 0%)" }}
           >
             <Image
-              src="/brand/pack-ceremoniale.svg"
+              src="/images/matcha-pack.png"
               alt="Ceremonial matcha pack"
               fill
               priority
@@ -458,7 +458,7 @@ export function CinematicScroll() {
             style={{ clipPath: "inset(50% 0% 0% 0%)" }}
           >
             <Image
-              src="/brand/pack-ceremoniale.svg"
+              src="/images/matcha-pack.png"
               alt=""
               fill
               priority
