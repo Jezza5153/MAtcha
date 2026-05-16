@@ -166,10 +166,10 @@ export function HeroPinned() {
       <div className="relative z-10 mx-auto flex h-full max-w-6xl flex-col items-center justify-between px-6 pt-20 pb-14 sm:pt-24 sm:pb-20 md:px-10">
         <div ref={headlineRef} className="text-center">
           <p className="mb-4 font-body text-[0.7rem] uppercase tracking-[0.32em] text-matcha-700">
-            FREDDOMATCHA · Single origin Uji
+            FREDDOMATCHA · Single-origin Japan
           </p>
           <h1 className="font-display text-[2.6rem] leading-[1.04] tracking-tight text-matcha-950 sm:text-6xl md:text-[5rem]">
-            FREDDOMATCHA ceremonial,
+            Freddo Matcha,
             <br />
             <em className="not-italic text-matcha-800">future ritual in green.</em>
           </h1>

@@ -1,4 +1,22 @@
-export type ProductSlug = "ceremonial" | "everyday" | "starter-kit";
+export type ProductSlug =
+  | "ceremonial-matcha"
+  | "everyday-matcha"
+  | "starter-kit";
+
+export type GrindingMethod = "stone_ground" | "unknown";
+
+export type Provenance = {
+  country: "Japan";
+  originRegion: string | null;
+  cultivar: string | null;
+  harvestSeason: string | null;
+  harvestYear: number | null;
+  grindingMethod: GrindingMethod;
+  organicCertified: boolean | null;
+  labTested: boolean | null;
+  supplierName: string | null;
+  lotNumber: string | null;
+};
 
 export type Product = {
   slug: ProductSlug;
@@ -7,35 +25,52 @@ export type Product = {
   description: string;
   priceCents: number;
   stripePriceId: string | null;
+  provenance: Provenance | null;
+};
+
+const unknownProvenance: Provenance = {
+  country: "Japan",
+  originRegion: null,
+  cultivar: null,
+  harvestSeason: null,
+  harvestYear: null,
+  grindingMethod: "unknown",
+  organicCertified: null,
+  labTested: null,
+  supplierName: null,
+  lotNumber: null,
 };
 
 export const products: Product[] = [
   {
-    slug: "ceremonial",
-    name: "Ceremonial Matcha",
-    tagline: "Stone-ground from first-harvest leaves.",
+    slug: "ceremonial-matcha",
+    name: "Freddo Ceremoniale",
+    tagline: "Single-origin ceremonial matcha.",
     description:
-      "A bright, vegetal grade meant to be whisked with water and tasted on its own. Single origin, shaded for three weeks before harvest.",
+      "Bright, vegetal, whisked solo with hot water. Supplier and harvest lot locking before launch.",
     priceCents: 4800,
     stripePriceId: null,
+    provenance: unknownProvenance,
   },
   {
-    slug: "everyday",
-    name: "Everyday Matcha",
-    tagline: "For the morning latte that becomes a habit.",
+    slug: "everyday-matcha",
+    name: "Freddo Quotidiano",
+    tagline: "For the daily latte that becomes a habit.",
     description:
-      "Smoother, slightly fuller-bodied. Holds up to oat milk and sits well at the bottom of an iced glass.",
+      "Fuller-bodied, made for oat milk and iced preparation. Supplier and harvest lot locking before launch.",
     priceCents: 2800,
     stripePriceId: null,
+    provenance: unknownProvenance,
   },
   {
     slug: "starter-kit",
-    name: "Starter Kit",
-    tagline: "Bowl, chasen, scoop, 30g of Everyday.",
+    name: "Il Rito Starter Kit",
+    tagline: "Bowl, chasen, scoop, 30g of Quotidiano.",
     description:
-      "Everything you need to make matcha properly at home. Hand-thrown ceramic bowl, 100-prong bamboo whisk, traditional bamboo scoop.",
+      "Everything to start the practice at home. Ceramic bowl, bamboo whisk, bamboo scoop, one tin of Freddo Quotidiano.",
     priceCents: 7800,
     stripePriceId: null,
+    provenance: null,
   },
 ];
 

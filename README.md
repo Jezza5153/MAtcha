@@ -1,15 +1,19 @@
-# Matcha — premium ecommerce scroll site
+# Freddo Matcha
 
-Calm, premium "leaf to ritual" scroll-storytelling site for a single-origin matcha brand. Built on Next.js 16 (App Router), Tailwind v4, GSAP ScrollTrigger, and Lenis.
+A premium ecommerce site for **Freddo Matcha** — single-origin Japanese matcha powder, dressed in European restraint. Italian-Japanese fusion: modern European house, Japanese sourcing.
+
+Built on Next.js 16 (App Router), Tailwind v4, GSAP ScrollTrigger, and Lenis.
+
+> **Pre-launch status.** Brand identity is locked. Supplier sourcing is in progress — we don't claim what we can't prove. See [`docs/product-and-commerce-spec.md`](docs/product-and-commerce-spec.md).
 
 ## Stack
 
-- **Next.js (App Router) + TypeScript** — Turbopack on by default.
-- **React 19.2** via App Router.
-- **Tailwind CSS v4** — CSS-first; brand tokens declared with `@theme` in `app/globals.css`.
-- **GSAP 3 + ScrollTrigger** — fully free since 2025.
-- **`@gsap/react`** — `useGSAP()` hook handles cleanup under React Strict Mode.
-- **Lenis** — smooth scroll, single RAF loop driven by `gsap.ticker`.
+- **Next.js 16 (App Router) + TypeScript** — Turbopack on by default
+- **React 19.2**
+- **Tailwind CSS v4** — CSS-first; brand tokens declared with `@theme` in `app/globals.css`
+- **GSAP 3 + ScrollTrigger** — fully free since 2025
+- **`@gsap/react`** — `useGSAP()` hook handles cleanup under React Strict Mode
+- **Lenis** — smooth scroll, single RAF loop driven by `gsap.ticker`
 
 ## Run
 
@@ -23,47 +27,47 @@ Visit `http://localhost:3000`.
 ## Project layout
 
 ```
-app/                       # routes (App Router)
+app/                       routes (App Router)
 components/
-  providers/LenisProvider  # smooth scroll + gsap.ticker
-  scroll/HeroPinned        # pinned hero scrubbed timeline
+  providers/LenisProvider  smooth scroll + gsap.ticker
+  scroll/                  pinned + scrubbed timelines
 lib/
-  gsap.ts                  # ScrollTrigger registration
-  products.ts              # typed catalog (3 SKUs, no Stripe yet)
-public/                    # placeholders, real assets land later
-.claude/skills/            # 5 project-local skills (brand, motion, UX, perf, Stitch)
-docs/                      # owner asset checklist + Stitch/Claude prompts
+  gsap.ts                  ScrollTrigger registration
+  motion.ts                brand easing curves + motion tokens
+  products.ts              typed catalog (3 SKUs, provenance schema)
+public/
+  brand/                   logo / favicon / OG (designer slots)
+  images/                  hero + product imagery
+docs/                      specs, audits, asset checklists
 ```
 
-## Slice 1 (current)
+## Specifications
 
-- Scaffold + Tailwind v4 brand tokens
-- Lenis + GSAP wired with single RAF
-- Pinned Hero with scrubbed powder/pack/headline timeline
-- Section stubs for Origin / Grinding / Ritual / Taste / Trust / Buy
-- Product placeholders (no Stripe wiring)
+- [`docs/design-spec-graphics.md`](docs/design-spec-graphics.md) — graphic / visual brief for the designer
+- [`docs/product-and-commerce-spec.md`](docs/product-and-commerce-spec.md) — strategic + technical brief: brand, proof, conversion, commerce stack, PR roadmap
+- [`docs/motion-audit.md`](docs/motion-audit.md) — locked motion vocabulary
 
-## Slice 2 (next)
+## PR roadmap
 
-- Stripe Checkout — `lib/stripe.ts`, `app/api/checkout/route.ts`, `@stripe/stripe-js` redirect
-- Real product cards with working CTAs
-- Success / cancel pages
+- **PR-1** ← *current* — Brand foundation. Lock name across codebase, strip scaffold, add brand asset slots, schema for provenance fields (all null until proven).
+- **PR-2** — Replace every placeholder image with final brand-grade work.
+- **PR-3** — Conversion layer (sticky CTA, skip-story, mini-cart, trust strip, reduce-motion toggle).
+- **PR-4** — Mobile redesign (kill the 500% pin on phones).
+- **PR-5** — Shopify Storefront API integration.
+- **PR-6** — Product pages with full proof block.
+- **PR-7** — Analytics + Klaviyo email flows.
+- **PR-8** — Reviews + subscriptions.
 
-## Slice 3+
+See the commerce spec for acceptance criteria per PR.
 
-- Origin / Grinding / Whisking / Taste sections built out
-- Real product photography + video
-- Reviews / trust strip
-- SEO + structured data
-- Email capture
+## Animation rules (do not break)
 
-## Animation direction
+1. **Single RAF loop.** The Lenis provider already wires `gsap.ticker` → `lenis.raf`. Never start a second `requestAnimationFrame`.
+2. **Use `@gsap/react`'s `useGSAP()` and `gsap.matchMedia()`** — never `ScrollTrigger.matchMedia()` or bare `useEffect` with manual `ctx.revert()`.
+3. **No banned easing.** `power2.out`, `power3.out`, `back.out`, `bounce.out`, `elastic` are off-limits. Use the named brand curves from [`lib/motion.ts`](lib/motion.ts) (`rise`, `settle`, `drift`, `carve`, `lift`).
 
-See `.claude/skills/scroll-animation-director/SKILL.md` and `.claude/skills/premium-matcha-brand-director/SKILL.md` — these auto-load when relevant work is being done. Two rules to never break:
+## Provenance rule
 
-1. Single RAF loop. The Lenis provider already wires `gsap.ticker` → `lenis.raf`. Never start a second `requestAnimationFrame` loop.
-2. Use `@gsap/react`'s `useGSAP()` and `gsap.matchMedia()` — never `ScrollTrigger.matchMedia()` or bare `useEffect` with manual `ctx.revert()`.
+> Brand can be locked now, product proof cannot be invented yet.
 
-## Owner assets
-
-`docs/owner-asset-checklist.md` lists everything we need from the brand owner. Send it before iterating on real photography.
+[`lib/products.ts`](lib/products.ts) carries a typed `Provenance` schema. Every claim-bearing field (`originRegion`, `cultivar`, `harvestSeason`, `harvestYear`, `organicCertified`, `labTested`, `supplierName`, `lotNumber`) is `null` until verified by supplier docs. UI must not display claims that aren't backed.

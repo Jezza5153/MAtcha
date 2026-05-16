@@ -123,7 +123,7 @@ export function GrindingScene() {
             <div ref={imageRef} className="motion-layer absolute inset-0">
               <Image
                 src="/images/matcha-powder.jpg"
-                alt="Macro view of stone-ground matcha powder"
+                alt="Macro view of fine matcha powder"
                 fill
                 sizes="(min-width: 768px) 60vw, 100vw"
                 className="object-cover object-center"

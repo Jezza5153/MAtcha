@@ -18,7 +18,7 @@ export default function Home() {
             06 · The shop
           </p>
           <h2 className="mt-3 max-w-2xl font-display text-4xl leading-[1.1] tracking-tight text-matcha-950 sm:text-5xl">
-            The first FreddoMatcha blends.
+            The first Freddo Matcha tins.
           </h2>
           <ul className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {products.map((p) => (
@@ -65,34 +65,49 @@ export default function Home() {
       </section>
 
       <section
-        id="trust"
+        id="sourcing"
         className="bg-cream-50 px-6 py-24 sm:py-32 md:px-10"
-        aria-label="Trust"
+        aria-label="Sourcing"
       >
-        <div className="mx-auto grid max-w-5xl gap-10 sm:grid-cols-3">
-          {[
-            {
-              k: "Origin",
-              v: "Single-origin Uji, Japan. Named-farm ceremonial sourcing.",
-            },
-            {
-              k: "Lab tested",
-              v: "Third-party residue and heavy-metal testing every lot.",
-            },
-            {
-              k: "Shipping",
-              v: "Private client delivery concierge launches with checkout.",
-            },
-          ].map((t) => (
-            <div key={t.k}>
+        <div className="mx-auto max-w-5xl">
+          <p className="font-body text-[0.7rem] uppercase tracking-[0.32em] text-matcha-700">
+            Sourcing
+          </p>
+          <h2 className="mt-3 max-w-3xl font-display text-4xl leading-[1.08] tracking-tight text-matcha-950 sm:text-5xl">
+            Single-origin Japanese matcha. Honest about what we can prove today.
+          </h2>
+          <p className="mt-5 max-w-2xl font-body text-base leading-relaxed text-ink-soft">
+            We're a new brand. The supplier relationship is being built. Until
+            it&rsquo;s locked, we won&rsquo;t claim what we can&rsquo;t verify.
+          </p>
+
+          <div className="mt-12 grid gap-8 md:grid-cols-2">
+            <div className="rounded-2xl border border-matcha-300/40 bg-cream-100 p-8">
               <p className="font-body text-[0.7rem] uppercase tracking-[0.32em] text-matcha-700">
-                {t.k}
+                Known now
               </p>
-              <p className="mt-3 font-display text-xl leading-snug text-matcha-950 sm:text-2xl">
-                {t.v}
-              </p>
+              <ul className="mt-4 space-y-3 font-body text-base leading-relaxed text-matcha-950">
+                <li>Japanese matcha powder</li>
+                <li>Single-origin target</li>
+                <li>Premium sourcing in progress</li>
+                <li>Packed in the European Union</li>
+              </ul>
             </div>
-          ))}
+
+            <div className="rounded-2xl border border-matcha-900/15 bg-matcha-950 p-8 text-cream-50">
+              <p className="font-body text-[0.7rem] uppercase tracking-[0.32em] text-matcha-200">
+                Locked before launch
+              </p>
+              <ul className="mt-4 space-y-3 font-body text-base leading-relaxed text-cream-100/95">
+                <li>Supplier name</li>
+                <li>Origin region &amp; farm</li>
+                <li>Cultivar</li>
+                <li>Harvest season &amp; year</li>
+                <li>Lab testing &amp; certifications</li>
+                <li>Lot number on every tin</li>
+              </ul>
+            </div>
+          </div>
         </div>
       </section>
 

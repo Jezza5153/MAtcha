@@ -8,9 +8,9 @@ import { motionEase, motionScrub } from "@/lib/motion";
 
 const beats = [
   {
-    eyebrow: "Single origin · Uji, Japan",
+    eyebrow: "Single-origin · Japan",
     title: "Ceremonial-grade matcha,",
-    em: "stone-ground slowly.",
+    em: "served slowly.",
   },
   {
     eyebrow: "02 · Origin",
