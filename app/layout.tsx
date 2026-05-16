@@ -1,6 +1,11 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { LenisProvider } from "@/components/providers/LenisProvider";
+import { CartProvider } from "@/components/providers/CartProvider";
+import { SiteChrome } from "@/components/site/SiteChrome";
+import { SiteFooter } from "@/components/site/SiteFooter";
+import { MiniCart } from "@/components/site/MiniCart";
+import { StickyShopCTA } from "@/components/site/StickyShopCTA";
 
 const siteUrl = "https://freddomatcha.com";
 const description =
@@ -44,7 +49,15 @@ export default function RootLayout({
   return (
     <html lang="en" className="antialiased">
       <body className="min-h-screen bg-cream-50 text-ink">
-        <LenisProvider>{children}</LenisProvider>
+        <LenisProvider>
+          <CartProvider>
+            <SiteChrome />
+            {children}
+            <StickyShopCTA />
+            <MiniCart />
+            <SiteFooter />
+          </CartProvider>
+        </LenisProvider>
       </body>
     </html>
   );

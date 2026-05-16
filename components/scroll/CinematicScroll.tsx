@@ -348,8 +348,9 @@ export function CinematicScroll() {
   return (
     <section
       ref={sectionRef}
+      id="cinematic"
       className="relative h-screen w-full overflow-hidden bg-cream-50"
-      aria-label="Matcha — leaf to ritual"
+      aria-label="Freddo Matcha — leaf to ritual"
     >
       {/* Field photo (deepest) */}
       <div ref={fieldRef} className="motion-layer absolute inset-0">

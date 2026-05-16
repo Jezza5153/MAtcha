@@ -117,3 +117,25 @@ body {
     animation: none;
   }
 }
+
+/* Manual toggle wired to ReduceMotionToggle (localStorage flag) */
+.force-reduce-motion *,
+.force-reduce-motion *::before,
+.force-reduce-motion *::after {
+  animation-duration: 0ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0ms !important;
+  scroll-behavior: auto !important;
+}
+
+.force-reduce-motion .hero-cloud,
+.force-reduce-motion .hero-pack,
+.force-reduce-motion .origin-image,
+.force-reduce-motion .motion-layer {
+  will-change: auto;
+  transform: none;
+}
+
+.force-reduce-motion .freddo-ambient::before {
+  animation: none;
+}

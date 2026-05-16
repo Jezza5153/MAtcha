@@ -1,11 +1,13 @@
 import Image from "next/image";
 import { CinematicScroll } from "@/components/scroll/CinematicScroll";
 import { BuyClose } from "@/components/scroll/BuyClose";
+import { SkipStoryLink } from "@/components/site/SkipStoryLink";
 import { products, formatPrice } from "@/lib/products";
 
 export default function Home() {
   return (
     <main className="freddo-ambient">
+      <SkipStoryLink />
       <CinematicScroll />
 
       <section
