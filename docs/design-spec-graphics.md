@@ -9,9 +9,9 @@
 
 ## 0. TL;DR for the designer
 
-1. We are building **Freddo Matcha** — a calm, premium, scroll-storytelling site for a single-origin matcha powder brand. **Italian-Japanese fusion** — European-styled house, Japanese sourcing (supplier and region locking before launch — see §2). Think editorial magazine + Apple product film, not "wellness blog."
+1. We are building **Freddo Matcha** — a calm, premium, scroll-storytelling site for a single-origin matcha powder brand. **Italian-Japanese fusion** — European-styled house, Japanese sourcing (supplier and region locking before launch — see Claims guardrail below). Think editorial magazine + Apple product film, not "wellness blog."
 2. **Brand name styling:** "Freddo Matcha" (two words, title case) for body display; "FREDDOMATCHA" (single-word all caps) for compact / OG / packaging lockups.
-3. The whole site is **one pinned cinematic narrative**: leaf → stone-mill → whisk → bowl → buy. Your imagery has to support an animated reveal, not stand alone.
+3. The whole site is **one pinned cinematic narrative**: leaf → grinding → whisk → bowl → buy. Your imagery has to support an animated reveal, not stand alone.
 4. **Palette is locked** (10 matcha greens, 3 creams, 2 stone neutrals, 2 inks). **Typography is locked** (Fraunces display, Inter body). Do not redesign these — design *into* them.
 5. **Motion grammar is locked** (rise / settle / drift / carve / lift). Imagery must be choreographable: subjects centered, generous negative space, no rigid edges that fight motion masks.
 6. Deliver master assets in **3000px long edge minimum, sRGB, PNG-24 (transparency) or JPG quality 90 (photo)**. We optimize via Next.js Image at build time.
@@ -53,7 +53,7 @@ The supplier relationship is being built. Until paperwork is in hand, the visual
 - **"Italian-Japanese house"** (brand positioning, not a sourcing claim)
 - **"Ceremonial"** / **"Everyday"** — these are the brand's own grade categories
 - **"Pre-orders opening soon"** / **"Launching"** (state of the brand)
-- **"Packed in the European Union"** (operations fact)
+- **"Packed in the European Union"** — only after operations / fulfillment confirms packing location. Until confirmed, omit from labels and copy.
 
 ### What you may NOT say (in copy, packaging, badges, captions, OG, ads) until verified by supplier docs
 
@@ -193,9 +193,9 @@ All paths relative to repo root. Sizes are current placeholder sizes — final a
 |---|---|---|---|---|---|
 | 1 | `public/images/matcha-pack.png` (1122×1402, 1.4 MB) | Hero, cinematic, product grid | Branded pack canister, front-facing | Subject ~75% frame height, masked with elliptical vignette | **PNG-24, ≥3000px tall, transparent background, soft natural shadow baked in below subject only. Subject centered horizontally, vertical center at 52% from top. Avoid critical detail on horizontal midline (split mask)** |
 | 2 | `public/images/matcha-powder-cloud.png` (1254×1254, 1.6 MB) | Hero, cinematic | Loose powder mid-air, dispersed | Multiplies into background — needs to read as light, not solid | **PNG-24, ≥3000px square, transparent background, edges feathered to 0% opacity at frame edge. No hard silhouette. Provide 2 variants: dense ("bloom") and sparse ("drift")** |
-| 3 | `public/images/matcha-powder.jpg` (1536×1024, 2.2 MB) | Stone Mill section | Macro of fine matcha powder texture | Camera-flat, fills frame, no horizon line | **JPG q90, ≥3000px wide, 3:2 ratio, subject runs to edges, no vignette, color graded to `matcha-700`–`matcha-500` tonal range** |
+| 3 | `public/images/matcha-powder.jpg` (1536×1024, 2.2 MB) | Grinding / Craft section | Macro of fine matcha powder texture | Camera-flat, fills frame, no horizon line | **JPG q90, ≥3000px wide, 3:2 ratio, subject runs to edges, no vignette, color graded to `matcha-700`–`matcha-500` tonal range** |
 | 4 | `public/images/matcha-bowl.jpg` (1254×1254, 2.5 MB) | Whisking section, cinematic bowl reveal | Whisked matcha in ceramic chawan, foam visible | Bowl center at ~50% / 55%; revealed via circular mask | **JPG q90, ≥3000px square. Bowl rim contained within inner 70% of frame. Foam highlight on bowl center. Background: cream-100 surface, no clutter. Shot from ~30° above** |
-| 5 | `public/images/matcha-field.jpg` (1672×941, 1.7 MB) | Origin section, cinematic background | Japanese shade-grown tea field (specific region/farm credited only once supplier is locked) | Horizon at ~55% from top; rows lead to vanishing point | **JPG q90, ≥3840px wide, 16:9. Soft morning light, low contrast, no harsh sun. Mist preferred. Horizon flat (no rolling hills). Color should harmonize with matcha-800/700** |
+| 5 | `public/images/matcha-field.jpg` (1672×941, 1.7 MB) | Origin section, cinematic background | Japanese tea field (do **not** caption as "shade-grown" or name a region until verified — see Claims guardrail) | Horizon at ~55% from top; rows lead to vanishing point | **JPG q90, ≥3840px wide, 16:9. Soft morning light, low contrast, no harsh sun. Mist preferred. Horizon flat (no rolling hills). Color should harmonize with matcha-800/700** |
 | 6 | `public/images/matcha-lifestyle-hero.jpg` (1672×941, 1.8 MB) | Buy / close section | Ritual moment — hands, bowl, ambient table | Subject low and right; ambient negative space top-left for headline | **JPG q90, ≥3840px wide, 16:9. Real hands, natural skin, no model overproduction. Bowl off-center. Window light. Surface: pale wood or cream linen. Final headline sits top-center over darker zone** |
 
 ### 4.2 Generative / illustrative SVGs (concept pack — needs upgrade)
@@ -206,7 +206,7 @@ These were placeholder concept art committed during exploration. They're not par
 |---|---|---|---|
 | 1 | `public/images/freddo-neon-garden.svg` | Section 07 art card | Replace, remove, or reframe? Current execution is closer to "neon" than the calm brand. Recommend: **remove from production; keep as designer reference for moodboard only.** |
 | 2 | `public/images/freddo-origin-grid.svg` | Section 07 art card | Same — recommend remove or replace with an editorial origin map (Japan, with the farm dot added once region is confirmed). |
-| 3 | `public/images/freddo-lab-disk.svg` | Section 07 art card | Same — replace with a certification crest **only if** the matching certification is real and verifiable (see §2 and §5.2). |
+| 3 | `public/images/freddo-lab-disk.svg` | Section 07 art card | Same — replace with a certification crest **only if** the matching certification is real and verifiable (see Claims guardrail and §5.2). |
 
 ### 4.3 Inline / generic SVG icons (low priority)
 
@@ -242,21 +242,23 @@ Each section's graphics must be designed in awareness of the animations they sit
 
 ### 5.2 Section 02 · Origin ([components/scroll/OriginPinned.tsx](../components/scroll/OriginPinned.tsx))
 
-**Job:** Convey provenance honestly — Japan, single-origin intent. The specific region, farm, and growing method are claims that only land in finished assets after they're verified (see §2).
+**Job:** Convey provenance honestly — Japan, single-origin intent. The specific region, farm, and growing method are claims that only land in finished assets after they're verified (see Claims guardrail).
 
 **Required assets:**
 1. **Hero field shot** (same as cinematic) — but also consider a **second variant** for this section's parallax: tighter crop, single tarp/shade-cloth visible. Adds story texture vs the wide cinematic shot.
 2. **(New) Provenance crest / mark** — a small monogrammed badge ("Single-Origin · Japan") in matcha-100 on transparent, for use as eyebrow ornament. Stroke weight ~1.5px, ≤120px wide at 1× display. A region/prefecture variant lands once the supplier farm is confirmed.
-3. **(New) Optional inline diagram** — a hand-feel SVG line illustration of the shade-tarp method (`oishita`). Strict 1px stroke, matcha-700, no fills. Reference: William Morris botanical line plates, *not* iconography.
+3. **(Conditional) Shade-growing diagram** — produce **only if** supplier confirms shade-tarp / `oishita` cultivation in writing. Hand-feel SVG line illustration of the method. Strict 1px stroke, matcha-700, no fills. Reference: William Morris botanical line plates, *not* iconography. Until verified, leave this slot empty.
 
-### 5.3 Section 03 · Stone Mill ([components/scroll/GrindingScene.tsx](../components/scroll/GrindingScene.tsx))
+### 5.3 Section 03 · Grinding / Craft ([components/scroll/GrindingScene.tsx](../components/scroll/GrindingScene.tsx))
 
-**Job:** Slow craftsmanship. The 40g/hour counter is the hero numeral.
+**Job:** Slow craftsmanship. If supplier confirms stone-grinding in writing, this section becomes the stone-mill story (with the 40g/hour counter as the hero numeral). Until then, use macro powder texture and frame the section around production care without naming a grinding method.
+
+> **Code note:** The 40g/hour counter currently displays in [components/scroll/GrindingScene.tsx](../components/scroll/GrindingScene.tsx). It must be hidden or relabeled before launch if the supplier does not confirm stone-grinding in writing — the figure is a stone-mill-specific industry constant, not a generic production fact.
 
 **Required assets:**
-1. **Powder macro** — see §4.1 #3. Existing texture works but needs color regrade.
-2. **(New) Stone mill close-up shot** — granite millstone in motion or static. Tight crop, low light, top-down or side-three-quarter. Will sit alongside the macro powder.
-3. **(Optional)** A small **cross-section diagram** of the mill (top stone, bottom stone, grain flow) — same line-art treatment as §5.2 #3.
+1. **Powder macro** — see §4.1 #3. Existing texture works but needs color regrade. Always-on.
+2. **(Conditional) Stone mill close-up shot** — produce **only if** supplier confirms stone-ground production in writing. Granite millstone in motion or static. Tight crop, low light, top-down or side-three-quarter. Will sit alongside the macro powder.
+3. **(Conditional) Stone mill cross-section diagram** — top stone, bottom stone, grain flow — same line-art treatment as §5.2 #3. **Produce only after stone-grinding is verified.**
 
 ### 5.4 Section 04 · Whisk ([components/scroll/WhiskingScene.tsx](../components/scroll/WhiskingScene.tsx))
 
@@ -356,9 +358,10 @@ None of these exist yet. The first two — Logo and Packaging — are the load-b
 ```
 SINGLE-ORIGIN
 JAPAN
-PACKED IN THE EU
 LOT XX-YYYY
 ```
+
+Add `PACKED IN THE EU` (or wherever) as a fourth line **only after operations / fulfillment confirms the packing location in writing**. Until then, leave it out — a wrong country-of-pack on food packaging is a legal problem, not just a brand one.
 
 Once supplier locks, proof zone becomes:
 
@@ -383,7 +386,7 @@ Color band must be visible in a 200px-wide product card from across the page. Te
 
 - Net weight
 - Ingredients (matcha)
-- Allergen statement (allergen-free notation)
+- Allergen statement / cross-contamination statement, based on supplier and packing facility documentation. Do **not** claim "allergen-free" unless audit certificates support it — under EU food regulation this is a legal claim, not a marketing flourish.
 - Best-before date
 - Storage instructions
 - Lot number
@@ -450,8 +453,8 @@ public/images/
   powder-cloud-bloom.png
   powder-cloud-drift.png
   powder-macro.jpg
-  field-uji-wide.jpg
-  field-uji-tight.jpg
+  field-japan-wide.jpg
+  field-japan-tight.jpg
   bowl-whisked.jpg
   bowl-whisking.jpg
   chasen.png
@@ -466,6 +469,8 @@ public/images/
 ```
 
 Lowercase, hyphenated, descriptive. No version suffixes (`v2`, `final-final`) — that's what git is for.
+
+> **Region in filenames is conditional.** Until supplier locks, the safe filename root is `field-japan-*`. When the farm is confirmed (Uji, Kagoshima, wherever), add `field-uji-wide.jpg` etc. as siblings. Never let a filename make a claim the spec forbids in copy.
 
 ### 7.4 Accessibility
 
@@ -606,14 +611,14 @@ For motion, see [`docs/motion-audit.md`](motion-audit.md) — the engineering no
 
 ### P1 — Strong-to-have for storytelling depth
 - [ ] Origin field — tight variant (§5.2)
-- [ ] Stone mill close-up (§5.3 #2)
+- [ ] Stone mill close-up (§5.3 #2) — **only if stone-grinding is verified**
 - [ ] Chasen + chashaku product shots (§5.4 #2-3)
 - [ ] Steam plume (§5.1 #6) — only if it elevates the cinematic close
 - [ ] Provenance crest (§5.2 #2)
 
 ### P2 — Reach goals (Slice 3+)
-- [ ] Shade-tarp diagram (§5.2 #3)
-- [ ] Stone mill cross-section diagram (§5.3 #3)
+- [ ] Shade-growing diagram (§5.2 #3) — **only if shade-tarp / `oishita` cultivation is verified**
+- [ ] Stone mill cross-section diagram (§5.3 #3) — **only if stone-grinding is verified**
 - [ ] Origin map (§6)
 - [ ] Certification crest (§6, if real certifications exist)
 - [ ] Email header / newsletter banner (§6)
