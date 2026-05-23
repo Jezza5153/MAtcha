@@ -32,7 +32,10 @@ export function MobileTrustBlock() {
       <p className="font-body text-[0.7rem] uppercase tracking-[0.32em] text-matcha-700">
         Wat we beloven
       </p>
-      <h2 className="mt-3 max-w-sm font-display text-3xl leading-[1.1] tracking-tight text-matcha-950">
+      <h2
+        data-mobile-reveal="section-headline"
+        className="mt-3 max-w-sm font-display text-3xl leading-[1.1] tracking-tight text-matcha-950"
+      >
         Vier dingen die je van ons mag verwachten.
       </h2>
 
@@ -40,6 +43,7 @@ export function MobileTrustBlock() {
         {stats.map((s) => (
           <li
             key={s.eyebrow}
+            data-mobile-reveal="trust-stat"
             className="rounded-2xl border border-matcha-900/10 bg-cream-50 p-4"
           >
             <p className="font-body text-[0.7rem] uppercase tracking-[0.22em] text-matcha-700">
