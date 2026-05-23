@@ -85,13 +85,13 @@ export function ProvenanceTable({ provenance }: { provenance: Provenance }) {
           {data.map((row) => (
             <div
               key={row.label}
-              className="grid grid-cols-3 gap-4 py-4 font-body text-sm md:grid-cols-4"
+              className="flex flex-col gap-1 py-4 font-body text-sm sm:grid sm:grid-cols-3 sm:gap-4 md:grid-cols-4"
             >
-              <dt className="col-span-1 uppercase tracking-[0.2em] text-[0.7rem] text-matcha-700">
+              <dt className="uppercase tracking-[0.2em] text-[0.7rem] text-matcha-700 sm:col-span-1">
                 {row.label}
               </dt>
               <dd
-                className={`col-span-2 md:col-span-3 ${row.pending ? "italic text-ink-soft/70" : "text-matcha-950"}`}
+                className={`sm:col-span-2 md:col-span-3 ${row.pending ? "italic text-ink-soft/70" : "text-matcha-950"}`}
               >
                 {row.pending ? "Wordt vastgelegd vóór de launch" : row.value}
               </dd>

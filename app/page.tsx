@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-import { CinematicScroll } from "@/components/scroll/CinematicScroll";
 import { BuyClose } from "@/components/scroll/BuyClose";
+import { DesktopCinematic } from "@/components/scroll/DesktopCinematic";
 import { SkipStoryLink } from "@/components/site/SkipStoryLink";
 import { MobileHero } from "@/components/site/MobileHero";
 import { MobileStarProduct } from "@/components/site/MobileStarProduct";
@@ -15,11 +15,11 @@ import { products, formatPrice, packImageFor } from "@/lib/products";
 
 export default function Home() {
   return (
-    <main className="freddo-ambient">
-      {/* Desktop: pinned cinematic hero */}
+    <main id="main" className="freddo-ambient">
+      {/* Desktop: pinned cinematic hero (dynamic + viewport-gated; not loaded on mobile) */}
       <div className="hidden md:block">
         <SkipStoryLink />
-        <CinematicScroll />
+        <DesktopCinematic />
       </div>
 
       {/* Mobile-only hero */}

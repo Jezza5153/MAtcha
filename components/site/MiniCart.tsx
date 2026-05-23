@@ -39,6 +39,7 @@ export function MiniCart() {
         aria-modal="true"
         aria-label="Winkelmand"
         aria-hidden={!cart.isOpen}
+        inert={!cart.isOpen ? true : undefined}
         className={`fixed inset-y-0 right-0 z-50 flex w-full max-w-md flex-col bg-cream-50 shadow-2xl transition-transform duration-500 ease-out ${cart.isOpen ? "translate-x-0" : "translate-x-full"}`}
       >
         <header

@@ -18,10 +18,14 @@ export function LenisProvider({ children }: { children: ReactNode }) {
   const [lenis, setLenis] = useState<Lenis | null>(null);
 
   useEffect(() => {
-    const reduce =
-      typeof window !== "undefined" &&
-      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (reduce) return;
+    if (typeof window === "undefined") return;
+
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    // Disable Lenis on coarse-pointer devices (touch). iOS + Android use native
+    // momentum scroll which is smoother and more reliable than Lenis syncTouch.
+    // Desktop wheel + trackpad still get Lenis.
+    const isTouch = window.matchMedia("(pointer: coarse)").matches;
+    if (reduce || isTouch) return;
 
     const instance = new Lenis({
       autoRaf: false,
@@ -30,7 +34,7 @@ export function LenisProvider({ children }: { children: ReactNode }) {
       easing: (t) => 1 - Math.pow(1 - t, 4),
       smoothWheel: true,
       wheelMultiplier: 0.9,
-      syncTouch: true,
+      syncTouch: false,
     });
 
     setLenis(instance);

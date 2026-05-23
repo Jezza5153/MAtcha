@@ -369,7 +369,7 @@ export function CinematicScroll() {
     <section
       ref={sectionRef}
       id="cinematic"
-      className="relative h-screen w-full overflow-hidden bg-cream-50"
+      className="relative h-[100dvh] w-full overflow-hidden bg-cream-50"
       aria-label="Freddo Matcha — van blad tot ritueel"
     >
       {/* Field photo (deepest) */}
