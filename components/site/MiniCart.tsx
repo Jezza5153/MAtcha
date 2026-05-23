@@ -21,6 +21,11 @@ export function MiniCart() {
     };
   }, [cart.isOpen, cart]);
 
+  const subtotalCents = cart.lines.reduce(
+    (sum, l) => sum + l.priceCents * l.quantity,
+    0,
+  );
+
   return (
     <>
       <div
@@ -32,33 +37,64 @@ export function MiniCart() {
       <aside
         role="dialog"
         aria-modal="true"
-        aria-label="Cart"
+        aria-label="Winkelmand"
         aria-hidden={!cart.isOpen}
         className={`fixed inset-y-0 right-0 z-50 flex w-full max-w-md flex-col bg-cream-50 shadow-2xl transition-transform duration-500 ease-out ${cart.isOpen ? "translate-x-0" : "translate-x-full"}`}
       >
-        <header className="flex items-center justify-between border-b border-matcha-900/10 px-6 py-5">
-          <h2 className="font-display text-2xl text-matcha-950">Your cart</h2>
+        <header
+          className="flex items-center justify-between border-b border-matcha-900/10 px-6 py-5"
+          style={{ paddingTop: "calc(env(safe-area-inset-top) + 1.25rem)" }}
+        >
+          <h2 className="font-display text-2xl text-matcha-950">Winkelmand</h2>
           <button
             type="button"
             onClick={cart.close}
-            aria-label="Close cart"
+            aria-label="Sluit winkelmand"
             className="font-body text-xs uppercase tracking-[0.2em] text-ink-soft hover:text-matcha-950"
           >
-            Close
+            Sluiten
           </button>
         </header>
 
         <div className="flex-1 overflow-y-auto px-6 py-6">
-          {cart.lines.length === 0 ? <EmptyCart /> : <CartLines lines={cart.lines} />}
+          {cart.lines.length === 0 ? (
+            <EmptyCart onClose={cart.close} />
+          ) : (
+            <CartLines lines={cart.lines} />
+          )}
         </div>
 
-        <footer className="border-t border-matcha-900/10 px-6 py-6">
+        {cart.lines.length > 0 && (
+          <div className="border-t border-matcha-900/10 px-6 py-4">
+            <div className="flex items-baseline justify-between font-body text-sm">
+              <span className="uppercase tracking-[0.2em] text-ink-soft">
+                Subtotaal
+              </span>
+              <span className="font-display text-lg text-matcha-950">
+                {formatPrice(subtotalCents)}
+              </span>
+            </div>
+            <button
+              type="button"
+              onClick={cart.close}
+              className="mt-3 font-body text-xs uppercase tracking-[0.2em] text-matcha-700 hover:text-matcha-950"
+            >
+              Verder winkelen
+            </button>
+          </div>
+        )}
+
+        <footer
+          className="border-t border-matcha-900/10 px-6 py-6"
+          style={{ paddingBottom: "calc(env(safe-area-inset-bottom) + 1.5rem)" }}
+        >
           <p className="font-body text-xs uppercase tracking-[0.2em] text-ink-soft">
-            Checkout
+            Afrekenen
           </p>
           <p className="mt-2 mb-4 font-body text-sm leading-relaxed text-matcha-950">
-            Checkout opens when supplier and lot are locked. Pre-orders coming
-            soon. Drop your email below to be first in line.
+            Afrekenen opent zodra leverancier en lot zijn vastgelegd. Pre-orders
+            komen binnenkort. Laat hieronder je e-mail achter om als eerste op
+            de hoogte te zijn.
           </p>
           <EmailCapture source="mini-cart" variant="light" />
         </footer>
@@ -67,19 +103,26 @@ export function MiniCart() {
   );
 }
 
-function EmptyCart() {
+function EmptyCart({ onClose }: { onClose: () => void }) {
   return (
     <div className="flex h-full flex-col items-center justify-center text-center">
       <p className="font-body text-xs uppercase tracking-[0.32em] text-matcha-700">
-        Empty
+        Leeg
       </p>
       <p className="mt-4 max-w-xs font-display text-2xl leading-snug text-matcha-950">
-        Nothing here yet.
+        Je winkelmand is nog leeg.
       </p>
       <p className="mt-3 max-w-xs font-body text-sm leading-relaxed text-ink-soft">
-        Browse the tins below and add what you&rsquo;re curious about. Checkout
-        opens with the launch.
+        Kies een blik of starter kit om je ritueel te beginnen.
       </p>
+      <button
+        type="button"
+        onClick={onClose}
+        className="mt-6 inline-flex items-center gap-2 rounded-full bg-matcha-950 px-5 py-2.5 font-body text-xs font-medium uppercase tracking-[0.2em] text-cream-50 hover:bg-matcha-900"
+      >
+        Shop de collectie
+        <span aria-hidden>→</span>
+      </button>
     </div>
   );
 }
@@ -95,7 +138,7 @@ function CartLines({ lines }: { lines: CartLine[] }) {
           <div>
             <p className="font-display text-lg text-matcha-950">{l.name}</p>
             <p className="font-body text-xs text-ink-soft">
-              Quantity {l.quantity}
+              Aantal {l.quantity}
             </p>
           </div>
           <p className="font-body text-sm text-matcha-950">

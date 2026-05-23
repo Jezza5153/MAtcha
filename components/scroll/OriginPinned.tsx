@@ -8,19 +8,19 @@ import { motionEase, motionScrub } from "@/lib/motion";
 
 const beats = [
   {
-    eyebrow: "02 · Origin",
-    title: "Tencha leaves rest under shade.",
-    body: "Three weeks before harvest, the canopy darkens. The plant slows. Theanine builds. Bitterness recedes.",
+    eyebrow: "02 · Herkomst",
+    title: "Tencha-bladeren rusten onder schaduw.",
+    body: "Drie weken voor de oogst gaat het zonnescherm dicht. De plant vertraagt. Theanine bouwt op. Bitterheid trekt zich terug.",
   },
   {
-    eyebrow: "02 · Origin",
-    title: "First cut. By hand.",
-    body: "Only the youngest leaves go forward — bright, soft, and barely thumbnail-sized.",
+    eyebrow: "02 · Herkomst",
+    title: "De eerste pluk. Met de hand.",
+    body: "Alleen de jongste bladeren gaan door — helder, zacht en nauwelijks groter dan een duimnagel.",
   },
   {
-    eyebrow: "02 · Origin",
-    title: "Steamed within the hour.",
-    body: "Heat locks in colour and grassy sweetness before the leaf has time to oxidise.",
+    eyebrow: "02 · Herkomst",
+    title: "Binnen een uur gestoomd.",
+    body: "Hitte legt de kleur en de grassige zoetheid vast voordat het blad de tijd krijgt om te oxideren.",
   },
 ];
 
@@ -152,7 +152,7 @@ export function OriginPinned() {
     <section
       ref={sectionRef}
       className="relative w-full overflow-hidden bg-matcha-950 text-cream-50 md:h-screen"
-      aria-label="Origin"
+      aria-label="Herkomst"
     >
       <div ref={imageRef} className="origin-image absolute inset-0">
         <Image

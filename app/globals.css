@@ -25,6 +25,14 @@
   /* Ink */
   --color-ink: #15201a;
   --color-ink-soft: #4a5247;
+
+  /* Safe-area insets — exposed as spacing tokens for Tailwind v4 utilities
+     (pt-safe-top, pb-safe-bottom, etc.) so notch + home indicator are respected
+     wherever we paint fixed/sticky chrome. */
+  --spacing-safe-top: env(safe-area-inset-top);
+  --spacing-safe-right: env(safe-area-inset-right);
+  --spacing-safe-bottom: env(safe-area-inset-bottom);
+  --spacing-safe-left: env(safe-area-inset-left);
 }
 
 @theme inline {

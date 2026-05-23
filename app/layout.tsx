@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Fraunces, Inter } from "next/font/google";
 import "./globals.css";
 import { LenisProvider } from "@/components/providers/LenisProvider";
@@ -26,13 +26,17 @@ const inter = Inter({
 
 const siteUrl = "https://freddomatcha.com";
 const description =
-  "Single-origin Japanese matcha powder. Italian restraint, Japanese sourcing. Supplier details and harvest lot locking before launch.";
+  "Premium single-origin Japanse matchapoeder voor thuis. Rustig ontworpen, zorgvuldig geselecteerd en gemaakt voor heldere matcha, romige latte en dagelijkse rituelen zonder poespas.";
+const ogDescription =
+  "Single-origin Japanse matchapoeder met Italiaanse rust. Voor heldere matcha, romige latte en een dagelijks ritueel zonder poespas.";
+const twitterDescription =
+  "Premium Japanse matchapoeder voor thuis. Rustig, helder en zonder poespas.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Freddo Matcha — Single-origin Japanese matcha",
-    template: "%s · Freddo Matcha",
+    default: "Freddo Matcha | Premium Japanse matcha voor thuis",
+    template: "%s | Freddo Matcha",
   },
   description,
   applicationName: "Freddo Matcha",
@@ -42,20 +46,69 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     siteName: "Freddo Matcha",
-    title: "Freddo Matcha — Single-origin Japanese matcha",
-    description,
+    title: "Freddo Matcha | Premium Japanse matcha voor thuis",
+    description: ogDescription,
     url: siteUrl,
-    locale: "en",
+    locale: "nl_NL",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Freddo Matcha — Single-origin Japanese matcha",
-    description,
+    title: "Freddo Matcha | Premium Japanse matcha voor thuis",
+    description: twitterDescription,
   },
   robots: {
     index: false,
     follow: false,
   },
+};
+
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#fbf7ec" },
+    { media: "(prefers-color-scheme: dark)", color: "#0d1f15" },
+  ],
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
+  colorScheme: "light",
+};
+
+const brandUrl = "https://freddomatcha.nl";
+
+const globalJsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": `${brandUrl}#organization`,
+      name: "Freddo Matcha",
+      url: brandUrl,
+      foundingLocation: {
+        "@type": "Place",
+        name: "Amersfoort, Nederland",
+      },
+      areaServed: ["Nederland", "België", "EU"],
+      sameAs: [],
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${brandUrl}#website`,
+      url: brandUrl,
+      name: "Freddo Matcha",
+      inLanguage: "nl-NL",
+      publisher: { "@id": `${brandUrl}#organization` },
+    },
+    {
+      "@type": "OnlineStore",
+      "@id": `${brandUrl}#store`,
+      name: "Freddo Matcha",
+      url: brandUrl,
+      parentOrganization: { "@id": `${brandUrl}#organization` },
+      currenciesAccepted: "EUR",
+      paymentAccepted: ["iDEAL", "Visa", "Mastercard", "Bancontact", "PayPal"],
+      areaServed: ["Nederland", "België", "EU"],
+    },
+  ],
 };
 
 export default function RootLayout({
@@ -65,10 +118,14 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="en"
+      lang="nl-NL"
       className={`${fraunces.variable} ${inter.variable} antialiased`}
     >
       <body className="min-h-screen bg-cream-50 text-ink">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(globalJsonLd) }}
+        />
         <TrustStrip />
         <LenisProvider>
           <CartProvider>

@@ -9,15 +9,15 @@ export function RelatedProducts({ currentSlug }: { currentSlug: ProductSlug }) {
 
   return (
     <section
-      aria-label="Also from Freddo"
+      aria-label="Ook van Freddo"
       className="bg-cream-100 px-6 py-16 md:px-10 md:py-24"
     >
       <div className="mx-auto max-w-6xl">
         <p className="font-body text-[0.7rem] uppercase tracking-[0.32em] text-matcha-700">
-          Also from Freddo
+          Ook van Freddo
         </p>
         <h2 className="mt-3 font-display text-3xl leading-tight tracking-tight text-matcha-950 md:text-4xl">
-          Stay in the range.
+          Blijf in de selectie.
         </h2>
 
         <ul className="mt-10 grid gap-6 md:grid-cols-2">
@@ -27,7 +27,7 @@ export function RelatedProducts({ currentSlug }: { currentSlug: ProductSlug }) {
               className="group rounded-3xl border border-stone-soft/60 bg-cream-50"
             >
               <Link
-                href={`/products/${p.slug}`}
+                href={`/producten/${p.slug}`}
                 className="flex flex-col md:flex-row md:items-center"
               >
                 <div className="relative aspect-square w-full overflow-hidden rounded-t-3xl bg-cream-100 md:w-44 md:rounded-t-none md:rounded-l-3xl">
@@ -51,7 +51,7 @@ export function RelatedProducts({ currentSlug }: { currentSlug: ProductSlug }) {
                       {formatPrice(p.priceCents)}
                     </span>
                     <span className="font-body text-xs uppercase tracking-[0.18em] text-matcha-700">
-                      Details →
+                      Bekijk product →
                     </span>
                   </div>
                 </div>

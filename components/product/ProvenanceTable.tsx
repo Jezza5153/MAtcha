@@ -5,17 +5,17 @@ type Row = { label: string; value: string | null; pending: boolean };
 function rows(p: Provenance): Row[] {
   return [
     {
-      label: "Country",
-      value: p.country,
+      label: "Land",
+      value: p.country === "Japan" ? "Japan" : p.country,
       pending: false,
     },
     {
-      label: "Origin region",
+      label: "Regio van herkomst",
       value: p.originRegion,
       pending: p.originRegion === null,
     },
     {
-      label: "Supplier",
+      label: "Leverancier",
       value: p.supplierName,
       pending: p.supplierName === null,
     },
@@ -25,7 +25,7 @@ function rows(p: Provenance): Row[] {
       pending: p.cultivar === null,
     },
     {
-      label: "Harvest",
+      label: "Oogst",
       value:
         p.harvestSeason && p.harvestYear
           ? `${p.harvestSeason} ${p.harvestYear}`
@@ -33,22 +33,28 @@ function rows(p: Provenance): Row[] {
       pending: !p.harvestSeason || !p.harvestYear,
     },
     {
-      label: "Grinding",
-      value: p.grindingMethod === "stone_ground" ? "Stone-ground" : null,
+      label: "Maling",
+      value: p.grindingMethod === "stone_ground" ? "Tussen steen gemalen" : null,
       pending: p.grindingMethod !== "stone_ground",
     },
     {
-      label: "Organic certified",
-      value: p.organicCertified === true ? "Yes" : p.organicCertified === false ? "No" : null,
+      label: "Biologisch gecertificeerd",
+      value:
+        p.organicCertified === true
+          ? "Ja"
+          : p.organicCertified === false
+            ? "Nee"
+            : null,
       pending: p.organicCertified === null,
     },
     {
-      label: "Lab tested",
-      value: p.labTested === true ? "Yes" : p.labTested === false ? "No" : null,
+      label: "Laboratorium getest",
+      value:
+        p.labTested === true ? "Ja" : p.labTested === false ? "Nee" : null,
       pending: p.labTested === null,
     },
     {
-      label: "Lot number",
+      label: "Lotnummer",
       value: p.lotNumber,
       pending: p.lotNumber === null,
     },
@@ -59,20 +65,20 @@ export function ProvenanceTable({ provenance }: { provenance: Provenance }) {
   const data = rows(provenance);
   return (
     <section
-      aria-label="Provenance"
+      aria-label="Herkomst en certificering"
       className="bg-cream-100 px-6 py-16 md:px-10 md:py-24"
     >
       <div className="mx-auto max-w-4xl">
         <p className="font-body text-[0.7rem] uppercase tracking-[0.32em] text-matcha-700">
-          Provenance
+          Herkomst
         </p>
         <h2 className="mt-3 font-display text-3xl leading-tight tracking-tight text-matcha-950 md:text-4xl">
-          What we know. What we&rsquo;ll prove.
+          Wat we weten. Wat we gaan bewijzen.
         </h2>
         <p className="mt-4 max-w-2xl font-body text-sm leading-relaxed text-ink-soft">
-          Fields marked &ldquo;Locking before launch&rdquo; will carry verified
-          values from the supplier paper trail and lab certificates. Every tin
-          will show its lot number.
+          Velden met &ldquo;Wordt vastgelegd vóór de launch&rdquo; krijgen
+          geverifieerde waarden uit het papieren spoor van de leverancier en uit
+          labcertificaten. Op elk blik komt het lotnummer te staan.
         </p>
 
         <dl className="mt-10 divide-y divide-matcha-900/10 border-y border-matcha-900/10">
@@ -87,7 +93,7 @@ export function ProvenanceTable({ provenance }: { provenance: Provenance }) {
               <dd
                 className={`col-span-2 md:col-span-3 ${row.pending ? "italic text-ink-soft/70" : "text-matcha-950"}`}
               >
-                {row.pending ? "Locking before launch" : row.value}
+                {row.pending ? "Wordt vastgelegd vóór de launch" : row.value}
               </dd>
             </div>
           ))}

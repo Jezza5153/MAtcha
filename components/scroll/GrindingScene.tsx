@@ -115,7 +115,7 @@ export function GrindingScene() {
     <section
       ref={sectionRef}
       className="relative w-full overflow-hidden bg-cream-50 py-24 sm:py-32"
-      aria-label="Stone-grinding"
+      aria-label="Maling tussen steen"
     >
       <div className="mx-auto grid max-w-7xl grid-cols-1 gap-12 px-6 md:grid-cols-12 md:gap-16 md:px-10">
         <div className="md:col-span-7 md:order-2">
@@ -123,7 +123,7 @@ export function GrindingScene() {
             <div ref={imageRef} className="motion-layer absolute inset-0">
               <Image
                 src="/images/matcha-powder.jpg"
-                alt="Macro view of fine matcha powder"
+                alt="Macro-opname van fijn matchapoeder"
                 fill
                 sizes="(min-width: 768px) 60vw, 100vw"
                 className="object-cover object-center"
@@ -137,25 +137,25 @@ export function GrindingScene() {
             ref={eyebrowRef}
             className="font-body text-[0.7rem] uppercase tracking-[0.32em] text-matcha-700"
           >
-            03 · Stone mill
+            03 · Steenmolen
           </p>
           <h2
             ref={titleRef}
             className="mt-3 font-display text-4xl leading-[1.08] tracking-tight text-matcha-950 sm:text-5xl md:text-6xl"
           >
-            Slow enough to keep the colour.
+            Langzaam genoeg om de kleur te behouden.
           </h2>
 
           <div className="mt-10 flex items-baseline gap-4">
             <span
               ref={statRef}
               className="font-display text-7xl tracking-tight text-matcha-800 tabular-nums sm:text-8xl"
-              aria-label="40 grams per hour"
+              aria-label="40 gram per uur"
             >
               0.0g
             </span>
             <span className="font-body text-sm uppercase tracking-[0.2em] text-ink-soft">
-              per hour, per mill
+              per uur, per molen
             </span>
           </div>
 
@@ -163,8 +163,8 @@ export function GrindingScene() {
             ref={bodyRef}
             className="mt-8 max-w-md font-body text-base text-ink-soft sm:text-lg"
           >
-            Granite stones turning at the pace the leaf can tolerate. Faster
-            grinding heats the powder and dulls the green.
+            Granieten stenen draaien in het tempo dat het blad aankan. Sneller
+            malen verhit het poeder en mat het groen.
           </p>
         </div>
       </div>

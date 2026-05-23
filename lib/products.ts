@@ -1,7 +1,7 @@
 export type ProductSlug =
-  | "ceremonial-matcha"
-  | "everyday-matcha"
-  | "starter-kit";
+  | "ceremoniele-matcha"
+  | "dagelijkse-matcha"
+  | "starterkit";
 
 export type GrindingMethod = "stone_ground" | "unknown";
 
@@ -54,158 +54,170 @@ const unknownProvenance: Provenance = {
 
 export const products: Product[] = [
   {
-    slug: "ceremonial-matcha",
+    slug: "ceremoniele-matcha",
     name: "Freddo Ceremoniale",
-    tagline: "Single-origin ceremonial matcha.",
+    tagline: "Voor puur opkloppen, heldere smaak en een rustig ritueel.",
     description:
-      "Bright, vegetal, whisked solo with hot water. Supplier and harvest lot locking before launch.",
+      "Een ceremoniële matcha voor wie matcha puur wil drinken: zacht, helder en zorgvuldig geselecteerd voor een elegante kom zonder bitter randje.",
     longDescription:
-      "The top of the Freddo range. Designed to be whisked solo with hot water — no milk, no sugar — so the leaf does the talking. Targeting soft umami, low bitterness, and a clean green finish. Specific tasting notes are published per harvest lot once supplier and grade are locked.",
+      "Freddo Ceremoniale is de meest verfijnde matcha in de eerste selectie. Gemaakt voor wie matcha puur opklopt met water en de smaak echt wil proeven. Denk aan een zachte body, heldere groene tonen en een schone afdronk. Geen overdreven beloftes, geen wellness-theater. Alleen een rustige, precieze matcha voor momenten waarop je iets beters wilt dan haast.",
     priceCents: 4800,
     stripePriceId: null,
     provenance: unknownProvenance,
     weightGrams: 30,
     tasteNotes: [
-      { key: "Umami", note: "Deep, savoury — what you're paying for" },
-      { key: "Bitterness", note: "Targeted soft, never sharp" },
-      { key: "Sweetness", note: "Subtle, vegetal" },
-      { key: "Finish", note: "Clean green, no lingering astringency" },
+      { key: "Smaak", note: "Zacht groen" },
+      { key: "Umami", note: "Licht aanwezig" },
+      { key: "Afdronk", note: "Schoon, niet blijvend" },
+      { key: "Bitterheid", note: "Weinig, in balans" },
     ],
     bestFor: ["straight"],
     preparation: [
       {
         step: 1,
-        title: "Sift",
-        body: "2g matcha (one chashaku scoop) into a warm bowl. Sifting prevents clumps.",
+        title: "Zeven",
+        body: "Zeef 2 gram matcha in een kom.",
       },
       {
         step: 2,
-        title: "Pour",
-        body: "60ml of 75°C water. Boiling water draws out bitterness — don't.",
+        title: "Schenken",
+        body: "Voeg 60–70 ml water toe van ongeveer 75–80°C.",
       },
       {
         step: 3,
-        title: "Whisk",
-        body: "Fast W-shaped strokes with a chasen for ~20 seconds, until a fine layer of foam settles on top.",
+        title: "Kloppen",
+        body: "Klop met een chasen tot er een fijne schuimlaag ontstaat.",
+      },
+      {
+        step: 4,
+        title: "Drinken",
+        body: "Drink direct, zonder suiker of melk, zodat je de herkomst proeft.",
       },
     ],
     faq: [
       {
-        q: "Why does ceremonial cost more?",
-        a: "First-harvest leaves, longer shading, slower stone-grinding — when our supplier is locked, we'll publish the specific lot details on every tin.",
+        q: "Is Freddo Ceremoniale geschikt voor latte?",
+        a: "Dat kan, maar deze matcha is vooral bedoeld om puur te drinken. Voor latte is Freddo Quotidiano waarschijnlijk logischer.",
       },
       {
-        q: "Can I use this in a latte?",
-        a: "You can, but you're paying for nuance milk will mostly hide. For lattes and iced, Freddo Quotidiano is the right choice.",
+        q: "Is deze matcha bitter?",
+        a: "Goede matcha heeft karakter, maar hoort niet hard of schraal bitter te smaken. Freddo Ceremoniale wordt geselecteerd op zachtheid, helderheid en balans.",
       },
       {
-        q: "It tastes bitter. What did I do wrong?",
-        a: "Most likely water too hot. Drop to 70°C and re-whisk. Bitterness in ceremonial-grade should never be the dominant note.",
-      },
-      {
-        q: "When does it ship?",
-        a: "Pre-orders open with the locked supplier lot. Drop your email in the cart slide-over to be first in line.",
+        q: "Wanneer gebruik ik deze?",
+        a: "Op momenten waarop je rustig matcha wilt maken en de smaak centraal staat. Minder haast, meer aandacht.",
       },
     ],
   },
   {
-    slug: "everyday-matcha",
+    slug: "dagelijkse-matcha",
     name: "Freddo Quotidiano",
-    tagline: "For the daily latte that becomes a habit.",
+    tagline: "Voor latte, iced matcha en dagelijks gebruik.",
     description:
-      "Fuller-bodied, made for oat milk and iced preparation. Supplier and harvest lot locking before launch.",
+      "Een toegankelijke Japanse matcha voor je dagelijkse latte, iced matcha of snelle ochtendroutine. Vol genoeg voor melk, zacht genoeg voor elke dag.",
     longDescription:
-      "The everyday version of the Freddo range. Designed to hold its character in oat milk, in ice, in a hurry. Drink it solo and it runs deeper than ceremonial — earthier, fuller, less delicate. Per-lot tasting notes published with each harvest.",
+      "Freddo Quotidiano is gemaakt voor dagelijks gebruik. Niet te kostbaar om vaak te drinken, maar wel serieus genoeg om je matcha latte beter te maken dan de waterige, bittere versies die je te vaak tegenkomt. Deze matcha heeft genoeg body om door melk heen te komen en blijft rustig in smaak. Ideaal voor warme latte, iced matcha of een snelle kom op drukke dagen.",
     priceCents: 2800,
     stripePriceId: null,
     provenance: unknownProvenance,
     weightGrams: 50,
     tasteNotes: [
-      { key: "Umami", note: "Pronounced, savory" },
-      { key: "Bitterness", note: "Balanced — designed to survive milk" },
-      { key: "Sweetness", note: "Earthy, oat-friendly" },
-      { key: "Body", note: "Full, holds against ice and dairy/oat" },
+      { key: "Smaak", note: "Romig groen" },
+      { key: "Karakter", note: "Licht grassig" },
+      { key: "Body", note: "Zacht maar vol" },
+      { key: "In melk", note: "Houdt zijn smaak goed" },
     ],
     bestFor: ["latte", "iced", "baking", "straight"],
     preparation: [
       {
         step: 1,
-        title: "Paste",
-        body: "3g matcha + 30ml warm water, whisk hard until a smooth paste forms with no lumps.",
+        title: "Zeven",
+        body: "Zeef 2 gram matcha in een kom of shaker.",
       },
       {
         step: 2,
-        title: "Pour",
-        body: "Add ice and 150ml of oat or whole milk over the paste. Stir.",
+        title: "Schenken",
+        body: "Voeg 40–60 ml water toe van ongeveer 75–80°C.",
       },
       {
         step: 3,
-        title: "Finish",
-        body: "Optional: a pinch of flaky sea salt for contrast, or a single drop of honey if you like it sweeter.",
+        title: "Kloppen",
+        body: "Klop of shake tot de matcha glad is.",
+      },
+      {
+        step: 4,
+        title: "Serveren",
+        body: "Giet over melk of ijs en roer kort door.",
       },
     ],
     faq: [
       {
-        q: "Is this lower quality than Ceremoniale?",
-        a: "Different grade for different use. Ceremoniale is engineered for nuance; Quotidiano is engineered to survive milk and ice without losing character.",
+        q: "Is Freddo Quotidiano minder goed dan Ceremoniale?",
+        a: "Nee, het heeft een ander doel. Ceremoniale is bedoeld om puur te drinken. Quotidiano is gemaakt voor latte, iced matcha en dagelijks gebruik.",
       },
       {
-        q: "Iced or hot?",
-        a: "Both. Quotidiano was built for either preparation — its body holds.",
+        q: "Kan ik deze ook puur drinken?",
+        a: "Ja, maar de smaak is voller en iets directer. Als je vooral puur drinkt, kies dan Freddo Ceremoniale.",
       },
       {
-        q: "How much caffeine?",
-        a: "Matcha is typically a lower peak with a longer plateau than coffee. Specific mg-per-serving will be published once lab data is in.",
-      },
-      {
-        q: "Can I bake with it?",
-        a: "Yes. Quotidiano is the right grade for matcha cakes, ice cream, and the croissant variant we'd never officially recommend.",
+        q: "Welke melk werkt het best?",
+        a: "Volle melk, havermelk en kokosdrank werken goed. Kies iets romigs, zodat de matcha mooi rond blijft.",
       },
     ],
   },
   {
-    slug: "starter-kit",
+    slug: "starterkit",
     name: "Il Rito Starter Kit",
-    tagline: "Bowl, chasen, scoop, 30g of Quotidiano.",
+    tagline: "Alles voor je eerste matcha-ritueel.",
     description:
-      "Everything to start the practice at home. Ceramic bowl, bamboo whisk, bamboo scoop, one tin of Freddo Quotidiano.",
+      "Een rustige startset met matcha en de tools die je nodig hebt om thuis goed te beginnen. Geen overvolle kit, alleen wat echt helpt.",
     longDescription:
-      "The kit to start. A ceramic bowl, a 100-prong bamboo whisk (chasen), a bamboo scoop (chashaku), and a 30g tin of Freddo Quotidiano to learn on. Drink the first ten bowls with this kit. When the technique settles, graduate to Freddo Ceremoniale.",
+      "Il Rito Starter Kit is gemaakt voor iedereen die thuis matcha wil maken zonder meteen te verdwalen in tools, termen en tegenstrijdige adviezen. Je krijgt een duidelijke basis: goede matcha, de juiste beweging en genoeg begeleiding om het ritueel eigen te maken. Niet ingewikkeld. Wel beter dan roeren met een lepel en hopen dat het goed komt.",
     priceCents: 7800,
     stripePriceId: null,
     provenance: null,
     weightGrams: null,
-    tasteNotes: [],
+    tasteNotes: [
+      { key: "Niveau", note: "Beginner-friendly" },
+      { key: "Tempo", note: "Rustige start" },
+      { key: "Set", note: "Compleet ritueel" },
+      { key: "Voor", note: "Thuis" },
+    ],
     bestFor: ["straight", "latte", "iced"],
     preparation: [
       {
         step: 1,
-        title: "Warm the bowl",
-        body: "Rinse the chawan with hot water, dry it. A warm bowl keeps the matcha from cooling too fast.",
+        title: "Zeven",
+        body: "Zeef de matcha zodat je geen klontjes krijgt.",
       },
       {
         step: 2,
-        title: "Sift and pour",
-        body: "2g of Quotidiano into the bowl. 60ml of 75°C water. No boiling.",
+        title: "Schenken",
+        body: "Voeg warm water toe, niet kokend.",
       },
       {
         step: 3,
-        title: "Whisk in W",
-        body: "Hold the chasen lightly. Whisk in fast W-strokes for 20 seconds. A thin foam settles on top — that's the marker.",
+        title: "Kloppen",
+        body: "Klop snel in een W-beweging tot de matcha glad en luchtig is.",
+      },
+      {
+        step: 4,
+        title: "Drinken",
+        body: "Drink puur of maak er een latte van.",
       },
     ],
     faq: [
       {
-        q: "Why Quotidiano and not Ceremoniale?",
-        a: "Ceremonial-grade matcha should be your tenth bowl, not your first. Learn the technique on Quotidiano — when you stop wasting it, upgrade.",
+        q: "Is deze kit goed voor beginners?",
+        a: "Ja. De kit is juist bedoeld om rustig te starten zonder onnodige spullen.",
       },
       {
-        q: "Is the bowl hand-thrown?",
-        a: "We won't claim that until we can prove it. Specific maker details land with the launch batch.",
+        q: "Heb ik echt een chasen nodig?",
+        a: "Voor de beste textuur wel. Een lepel mengt matcha vaak niet goed genoeg en laat sneller klontjes achter.",
       },
       {
-        q: "Can I gift this?",
-        a: "Yes. Optional gift note at checkout once pre-orders open.",
+        q: "Kan ik hiermee ook iced matcha maken?",
+        a: "Ja. Klop de matcha eerst glad met een beetje warm water en giet daarna over ijs en melk.",
       },
     ],
   },
@@ -217,28 +229,28 @@ export const getProduct = (slug: ProductSlug): Product | undefined =>
 export const productSlugs = (): ProductSlug[] => products.map((p) => p.slug);
 
 export const formatPrice = (cents: number): string =>
-  `€${(cents / 100).toFixed(2)}`;
+  `€${(cents / 100).toFixed(2).replace(".", ",")}`;
 
 export const formatPreparationLabel = (use: UsePreparation): string => {
   switch (use) {
     case "straight":
-      return "Whisked solo";
+      return "Puur opgeklopt";
     case "latte":
       return "Latte";
     case "iced":
-      return "Iced";
+      return "Iced matcha";
     case "baking":
-      return "Baking";
+      return "Bakken";
   }
 };
 
 export const packImageFor = (slug: ProductSlug): string => {
   switch (slug) {
-    case "ceremonial-matcha":
+    case "ceremoniele-matcha":
       return "/brand/pack-ceremoniale.svg";
-    case "everyday-matcha":
+    case "dagelijkse-matcha":
       return "/brand/pack-quotidiano.svg";
-    case "starter-kit":
+    case "starterkit":
       return "/brand/pack-rito.svg";
   }
 };

@@ -9,12 +9,12 @@ export function ReviewsPlaceholder() {
           Reviews
         </p>
         <h2 className="mt-3 font-display text-3xl leading-tight tracking-tight text-matcha-950 md:text-4xl">
-          Coming with the first batch.
+          Komen met de eerste batch.
         </h2>
         <p className="mt-4 max-w-2xl font-body text-base leading-relaxed text-ink-soft">
-          We&rsquo;ll publish honest reviews from the first thirty bowls
-          shipped. No incentivized scores, no fake five stars — when reviews
-          land here, they will be real.
+          We publiceren eerlijke reviews van de eerste dertig verstuurde kommen.
+          Geen betaalde scores, geen valse vijf sterren — als hier reviews komen
+          te staan, zijn ze echt.
         </p>
 
         <div className="mt-10 grid gap-4 sm:grid-cols-2">

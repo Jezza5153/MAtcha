@@ -7,9 +7,9 @@ import { gsap } from "@/lib/gsap";
 import { motionEase, motionDuration } from "@/lib/motion";
 
 const steps = [
-  { n: "01", text: "Two grams. Sift through fine mesh." },
-  { n: "02", text: "Sixty millilitres of 75°C water." },
-  { n: "03", text: "Whisk in a sharp W. Fifteen seconds." },
+  { n: "01", text: "Twee gram. Door een fijne zeef." },
+  { n: "02", text: "Zestig milliliter water van 75°C." },
+  { n: "03", text: "Klop in een scherpe W. Vijftien seconden." },
 ];
 
 export function WhiskingScene() {
@@ -85,17 +85,17 @@ export function WhiskingScene() {
     <section
       ref={sectionRef}
       className="relative w-full overflow-hidden bg-cream-100 py-24 sm:py-32"
-      aria-label="Whisking ritual"
+      aria-label="Het ritueel van het opkloppen"
     >
       <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 px-6 md:grid-cols-12 md:gap-16 md:px-10">
         <div className="md:col-span-6">
           <p className="font-body text-[0.7rem] uppercase tracking-[0.32em] text-matcha-700">
-            04 · The whisk
+            04 · De chasen
           </p>
           <h2 className="mt-3 font-display text-4xl leading-[1.08] tracking-tight text-matcha-950 sm:text-5xl md:text-6xl">
-            The chasen does the work.
+            De chasen doet het werk.
             <br />
-            <em className="not-italic text-matcha-800">You’re guiding it.</em>
+            <em className="not-italic text-matcha-800">Jij begeleidt hem.</em>
           </h2>
 
           <ol className="mt-12 space-y-6">
@@ -133,7 +133,7 @@ export function WhiskingScene() {
           >
             <Image
               src="/images/matcha-bowl.jpg"
-              alt="Whisked matcha in a hand-thrown ceramic bowl with bamboo chasen"
+              alt="Opgeklopte matcha in een handgedraaide keramische kom met bamboe chasen"
               fill
               sizes="(min-width: 768px) 40vw, 100vw"
               className="object-cover object-center"

@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
-export const alt = "Freddo Matcha — Single-origin Japanese matcha";
+export const alt = "Freddo Matcha — Premium Japanse matcha voor thuis";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -53,7 +53,7 @@ export default function OpengraphImage() {
             display: "flex",
           }}
         >
-          Single-origin · Japan
+          Single-origin · Japan · NL
         </div>
 
         {/* Wordmark + accent dot */}
@@ -91,7 +91,7 @@ export default function OpengraphImage() {
             display: "flex",
           }}
         >
-          Italian restraint. Japanese sourcing. Pre-orders opening soon.
+          Italiaanse rust. Japanse herkomst. Pre-order opent binnenkort.
         </div>
       </div>
     ),

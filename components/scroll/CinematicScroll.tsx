@@ -9,27 +9,27 @@ import { motionEase, motionScrub } from "@/lib/motion";
 const beats = [
   {
     eyebrow: "Single-origin · Japan",
-    title: "Ceremonial-grade matcha,",
-    em: "served slowly.",
+    title: "Ceremoniële matcha,",
+    em: "rustig geserveerd.",
   },
   {
-    eyebrow: "02 · Origin",
-    title: "Three weeks",
-    em: "under shade.",
+    eyebrow: "02 · Herkomst",
+    title: "Drie weken",
+    em: "onder schaduw.",
   },
   {
-    eyebrow: "03 · Stone mill",
-    title: "Forty grams",
-    em: "an hour, by stone.",
+    eyebrow: "03 · Steenmolen",
+    title: "Veertig gram",
+    em: "per uur, tussen steen.",
   },
   {
-    eyebrow: "04 · The whisk",
-    title: "Two grams. Sixty millilitres.",
-    em: "Bamboo, in W shapes.",
+    eyebrow: "04 · De chasen",
+    title: "Twee gram. Zestig milliliter.",
+    em: "Bamboe, in W-bewegingen.",
   },
   {
     eyebrow: "",
-    title: "Tomorrow morning.",
+    title: "Morgenochtend.",
     em: "",
   },
 ];
@@ -370,7 +370,7 @@ export function CinematicScroll() {
       ref={sectionRef}
       id="cinematic"
       className="relative h-screen w-full overflow-hidden bg-cream-50"
-      aria-label="Freddo Matcha — leaf to ritual"
+      aria-label="Freddo Matcha — van blad tot ritueel"
     >
       {/* Field photo (deepest) */}
       <div ref={fieldRef} className="motion-layer absolute inset-0">
@@ -467,7 +467,7 @@ export function CinematicScroll() {
           >
             <Image
               src="/images/matcha-pack.png"
-              alt="Ceremonial matcha pack"
+              alt="Blik ceremoniële matcha"
               fill
               priority
               sizes="(min-width: 1024px) 256px, (min-width: 768px) 240px, 208px"
@@ -529,10 +529,10 @@ export function CinematicScroll() {
       {/* Fixed CTA — present throughout */}
       <div className="pointer-events-none absolute inset-x-0 bottom-6 z-40 flex justify-center sm:bottom-8 md:bottom-10 md:justify-end md:pr-10">
         <a
-          href="#products"
+          href="#producten"
           className="pointer-events-auto inline-flex items-center gap-3 rounded-full bg-matcha-950/90 px-6 py-3 font-body text-xs font-medium uppercase tracking-[0.18em] text-cream-50 shadow-lg shadow-matcha-950/20 backdrop-blur-md transition-colors hover:bg-matcha-900"
         >
-          Choose your matcha
+          Kies jouw matcha
           <span aria-hidden>→</span>
         </a>
       </div>

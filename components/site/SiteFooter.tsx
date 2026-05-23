@@ -21,43 +21,66 @@ export function SiteFooter() {
               />
             </p>
             <p className="mt-4 max-w-sm font-body text-sm leading-relaxed text-cream-100/75">
-              Single-origin Japanese matcha powder. Italian restraint, Japanese
-              sourcing. Pre-orders opening when supplier and lot are locked.
+              Single-origin Japanse matchapoeder. Italiaanse rust, Japanse
+              herkomst. Pre-orders openen zodra leverancier en lot zijn
+              vastgelegd.
             </p>
             <div className="mt-6 max-w-sm">
               <EmailCapture source="footer" variant="dark" />
             </div>
+            <address className="mt-8 max-w-sm not-italic">
+              <p className="font-display text-lg text-cream-50">
+                Freddo Matcha
+              </p>
+              <p className="mt-1 font-body text-sm text-cream-100/75">
+                Amersfoort, Nederland
+              </p>
+              <p className="mt-3 font-body text-sm leading-relaxed text-cream-100/75">
+                Premium Japanse matcha voor thuis.
+                <br />
+                Ontstaan in Amersfoort, met Japanse herkomst en Italiaanse rust.
+              </p>
+              <dl className="mt-4 grid grid-cols-[auto_1fr] gap-x-3 gap-y-1 font-body text-xs text-cream-100/65">
+                <dt className="uppercase tracking-[0.18em]">KvK</dt>
+                <dd>binnenkort</dd>
+                <dt className="uppercase tracking-[0.18em]">BTW</dt>
+                <dd>binnenkort</dd>
+                <dt className="uppercase tracking-[0.18em]">Contact</dt>
+                <dd>
+                  <a
+                    href="mailto:hello@freddomatcha.nl"
+                    className="hover:text-cream-50"
+                  >
+                    hello@freddomatcha.nl
+                  </a>
+                </dd>
+              </dl>
+            </address>
           </div>
 
           <FooterColumn title="Shop">
-            <FooterLink href="#products">All matcha</FooterLink>
-            <FooterLink href="/products/ceremonial-matcha">
+            <FooterLink href="#producten">Alle matcha</FooterLink>
+            <FooterLink href="/producten/ceremoniele-matcha">
               Freddo Ceremoniale
             </FooterLink>
-            <FooterLink href="/products/everyday-matcha">
+            <FooterLink href="/producten/dagelijkse-matcha">
               Freddo Quotidiano
             </FooterLink>
-            <FooterLink href="/products/starter-kit">Il Rito Kit</FooterLink>
+            <FooterLink href="/producten/starterkit">Il Rito Kit</FooterLink>
           </FooterColumn>
 
-          <FooterColumn title="Brand">
-            <FooterLink href="/story">Our story</FooterLink>
-            <FooterLink href="/#sourcing">Sourcing</FooterLink>
-            <FooterLink href="#buy">Ritual</FooterLink>
-            <FooterLink href="/journal" disabled>
-              Journal · soon
-            </FooterLink>
+          <FooterColumn title="Merk">
+            <FooterLink href="/verhaal">Ons verhaal</FooterLink>
+            <FooterLink href="/verhaal/amersfoort">Vanuit Amersfoort</FooterLink>
+            <FooterLink href="/#herkomst">Herkomst</FooterLink>
+            <FooterLink href="/gidsen">Gidsen</FooterLink>
           </FooterColumn>
 
-          <FooterColumn title="Help">
-            <FooterLink href="/shipping" disabled>
-              Shipping · soon
-            </FooterLink>
-            <FooterLink href="/returns" disabled>
-              Returns · soon
-            </FooterLink>
-            <FooterLink href="mailto:hello@freddomatcha.com">
-              Contact us
+          <FooterColumn title="Hulp">
+            <FooterLink href="/verzending">Verzending</FooterLink>
+            <FooterLink href="/retour">Retour</FooterLink>
+            <FooterLink href="mailto:hello@freddomatcha.nl">
+              Contact
             </FooterLink>
           </FooterColumn>
         </div>
@@ -65,13 +88,13 @@ export function SiteFooter() {
         <div className="mt-16 flex flex-col gap-6 border-t border-cream-50/10 pt-8 md:flex-row md:items-center md:justify-between">
           <div className="flex items-center gap-4">
             <p className="font-body text-[0.7rem] uppercase tracking-[0.22em] text-cream-100/55">
-              Payments · placeholder
+              Betaalmethoden · placeholder
             </p>
             <ul className="flex items-center gap-2">
               {["Visa", "MC", "iDEAL", "Bcnct", "PayPal"].map((p) => (
                 <li
                   key={p}
-                  aria-label={`${p} accepted at checkout (placeholder)`}
+                  aria-label={`${p} geaccepteerd bij afrekenen (placeholder)`}
                   className="rounded border border-cream-50/15 px-2 py-1 font-body text-[0.6rem] uppercase tracking-[0.18em] text-cream-100/60"
                 >
                   {p}
@@ -85,8 +108,8 @@ export function SiteFooter() {
 
         <div className="mt-8 flex flex-col gap-3 border-t border-cream-50/10 pt-6 md:flex-row md:items-center md:justify-between">
           <p className="font-body text-[0.7rem] text-cream-100/50">
-            © {year} Freddo Matcha. All rights reserved. Pre-launch site —
-            content subject to change.
+            © {year} Freddo Matcha. Alle rechten voorbehouden. Pre-launch site —
+            inhoud kan nog veranderen.
           </p>
           <ul className="flex flex-wrap gap-5 font-body text-[0.7rem] text-cream-100/50">
             <li>
@@ -95,8 +118,8 @@ export function SiteFooter() {
               </Link>
             </li>
             <li>
-              <Link href="/terms" className="hover:text-cream-50">
-                Terms
+              <Link href="/voorwaarden" className="hover:text-cream-50">
+                Voorwaarden
               </Link>
             </li>
             <li>
@@ -133,19 +156,10 @@ function FooterColumn({
 function FooterLink({
   href,
   children,
-  disabled,
 }: {
   href: string;
   children: React.ReactNode;
-  disabled?: boolean;
 }) {
-  if (disabled) {
-    return (
-      <li className="text-cream-100/40" aria-disabled="true">
-        {children}
-      </li>
-    );
-  }
   return (
     <li>
       <Link href={href} className="transition-colors hover:text-cream-50">

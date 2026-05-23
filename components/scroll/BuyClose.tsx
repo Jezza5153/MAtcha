@@ -69,7 +69,7 @@ export function BuyClose() {
   return (
     <section
       ref={sectionRef}
-      id="buy"
+      id="bestellen"
       className="relative isolate overflow-hidden px-6 py-32 text-cream-50 sm:py-40 md:px-10"
       aria-label="Begin"
     >
@@ -95,19 +95,19 @@ export function BuyClose() {
           ref={headlineRef}
           className="mt-4 font-display text-4xl leading-[1.05] tracking-tight sm:text-6xl md:text-[5rem]"
         >
-          One bowl.
+          Eén kom.
           <br />
-          <em className="not-italic">Tomorrow morning.</em>
+          <em className="not-italic">Morgenochtend.</em>
         </h2>
         <p className="mt-8 font-body text-base text-cream-100/85 sm:text-lg">
-          Free shipping in the EU on orders over €60.
+          Gratis verzending binnen de EU vanaf €60.
         </p>
         <a
           ref={ctaRef}
-          href="#products"
+          href="#producten"
           className="mt-10 inline-flex items-center gap-3 rounded-full bg-cream-50 px-8 py-3.5 font-body text-sm font-medium uppercase tracking-[0.18em] text-matcha-950 transition-colors hover:bg-cream-100 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cream-100"
         >
-          Choose your matcha
+          Kies jouw matcha
           <span aria-hidden>→</span>
         </a>
       </div>

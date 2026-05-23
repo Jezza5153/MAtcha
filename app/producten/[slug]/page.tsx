@@ -53,20 +53,70 @@ export default async function ProductPage({
   const product = getProduct(slug);
   if (!product) notFound();
 
+  const productUrl = `https://freddomatcha.nl/producten/${product.slug}`;
+
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "Product",
-    name: product.name,
-    description: product.description,
-    brand: { "@type": "Brand", name: "Freddo Matcha" },
-    image: ["/images/matcha-pack.png"],
-    offers: {
-      "@type": "Offer",
-      priceCurrency: "EUR",
-      price: (product.priceCents / 100).toFixed(2),
-      availability: "https://schema.org/PreOrder",
-      url: `https://freddomatcha.com/products/${product.slug}`,
-    },
+    "@graph": [
+      {
+        "@type": "Product",
+        "@id": `${productUrl}#product`,
+        name: product.name,
+        description: product.description,
+        brand: {
+          "@type": "Brand",
+          name: "Freddo Matcha",
+          "@id": "https://freddomatcha.nl#organization",
+        },
+        image: ["/images/matcha-pack.png"],
+        offers: {
+          "@type": "Offer",
+          priceCurrency: "EUR",
+          price: (product.priceCents / 100).toFixed(2),
+          availability: "https://schema.org/PreOrder",
+          url: productUrl,
+        },
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Home",
+            item: "https://freddomatcha.nl/",
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "Producten",
+            item: "https://freddomatcha.nl/#producten",
+          },
+          {
+            "@type": "ListItem",
+            position: 3,
+            name: product.name,
+            item: productUrl,
+          },
+        ],
+      },
+      ...(product.faq.length > 0
+        ? [
+            {
+              "@type": "FAQPage",
+              "@id": `${productUrl}#faq`,
+              mainEntity: product.faq.map((item) => ({
+                "@type": "Question",
+                name: item.q,
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: item.a,
+                },
+              })),
+            },
+          ]
+        : []),
+    ],
   };
 
   return (
@@ -84,12 +134,12 @@ export default async function ProductPage({
       <ProductHero product={product} />
 
       <section
-        aria-label="About"
+        aria-label="Over dit blik"
         className="bg-cream-50 px-6 pb-16 md:px-10 md:pb-24"
       >
         <div className="mx-auto max-w-3xl">
           <p className="font-body text-[0.7rem] uppercase tracking-[0.32em] text-matcha-700">
-            About this tin
+            Over dit blik
           </p>
           <p className="mt-4 font-display text-2xl leading-snug text-matcha-950 md:text-3xl">
             {product.longDescription}
@@ -112,7 +162,7 @@ export default async function ProductPage({
 
       <ShippingReturnsCard />
 
-      {product.slug === "everyday-matcha" && (
+      {product.slug === "dagelijkse-matcha" && (
         <SubscribeUpsell
           basePriceCents={product.priceCents}
           productName={product.name}
@@ -131,13 +181,13 @@ export default async function ProductPage({
 function ShippingReturnsCard() {
   return (
     <section
-      aria-label="Shipping & returns"
+      aria-label="Verzending en retour"
       className="bg-cream-50 px-6 py-12 md:px-10 md:py-16"
     >
       <div className="mx-auto max-w-3xl rounded-2xl border border-matcha-900/10 bg-cream-100 p-8">
         <details className="group">
           <summary className="flex cursor-pointer items-center justify-between gap-4 font-display text-xl text-matcha-950 list-none">
-            <span>Shipping &amp; returns</span>
+            <span>Verzending &amp; retour</span>
             <span
               aria-hidden
               className="font-body text-2xl text-matcha-700 transition-transform group-open:rotate-45"
@@ -147,19 +197,19 @@ function ShippingReturnsCard() {
           </summary>
           <div className="mt-4 space-y-3 font-body text-sm leading-relaxed text-ink-soft">
             <p>
-              <strong className="text-matcha-950">Shipping:</strong> Full
-              shipping policy and EU rates land with the pre-order launch. Free
-              shipping over &euro;60.
+              <strong className="text-matcha-950">Verzending:</strong> Het
+              volledige verzendbeleid en de EU-tarieven worden bekendgemaakt bij
+              de pre-order launch. Gratis verzending vanaf &euro;60.
             </p>
             <p>
-              <strong className="text-matcha-950">Returns:</strong> Sealed tins
-              within 14 days. Once opened, matcha is non-returnable for food
-              safety reasons.
+              <strong className="text-matcha-950">Retour:</strong> Ongeopende
+              blikken binnen 14 dagen. Eenmaal geopend is matcha om
+              voedselveiligheidsredenen niet retourneerbaar.
             </p>
             <p>
-              <strong className="text-matcha-950">Storage:</strong> Sealed tin
-              at room temperature. After opening: refrigerate, consume within 30
-              days.
+              <strong className="text-matcha-950">Bewaren:</strong> Ongeopend
+              blik op kamertemperatuur. Na openen: koel bewaren en binnen 30
+              dagen opmaken.
             </p>
           </div>
         </details>

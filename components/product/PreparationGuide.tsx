@@ -11,19 +11,19 @@ export function PreparationGuide({
 
   return (
     <section
-      id="preparation"
-      aria-label="Preparation"
+      id="bereiding"
+      aria-label="Bereiding"
       className="bg-matcha-950 px-6 py-16 text-cream-50 md:px-10 md:py-24"
     >
       <div className="mx-auto max-w-5xl">
         <p className="font-body text-[0.7rem] uppercase tracking-[0.32em] text-matcha-200">
-          How to brew
+          Bereiding
         </p>
         <h2 className="mt-3 max-w-2xl font-display text-3xl leading-tight tracking-tight md:text-4xl">
-          {productName} — three steps.
+          Zo maak je {productName}.
         </h2>
 
-        <ol className="mt-10 grid gap-6 md:grid-cols-3">
+        <ol className="mt-10 grid gap-6 sm:grid-cols-2 md:grid-cols-4">
           {steps.map((s) => (
             <li
               key={s.step}

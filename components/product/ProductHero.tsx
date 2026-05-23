@@ -17,7 +17,7 @@ export function ProductHero({ product }: { product: Product }) {
         <div className="relative aspect-square w-full overflow-hidden rounded-3xl bg-cream-100">
           <Image
             src={packImageFor(product.slug)}
-            alt={`${product.name} — illustrated mockup`}
+            alt={`${product.name} — illustratie van het blik`}
             fill
             priority
             sizes="(min-width: 768px) 50vw, 100vw"
@@ -42,7 +42,7 @@ export function ProductHero({ product }: { product: Product }) {
             </span>
             {product.weightGrams && (
               <span className="font-body text-sm text-ink-soft">
-                {product.weightGrams}g tin
+                Blik van {product.weightGrams}g
               </span>
             )}
           </div>
@@ -53,21 +53,21 @@ export function ProductHero({ product }: { product: Product }) {
               onClick={cart.open}
               className="inline-flex items-center gap-2 rounded-full bg-matcha-950 px-6 py-3 font-body text-xs font-medium uppercase tracking-[0.2em] text-cream-50 shadow-lg shadow-matcha-950/20 transition-colors hover:bg-matcha-900"
             >
-              Notify me at launch
+              Houd me op de hoogte
               <span aria-hidden>→</span>
             </button>
             <a
-              href="#preparation"
+              href="#bereiding"
               className="inline-flex items-center gap-2 rounded-full border border-matcha-950/20 px-6 py-3 font-body text-xs font-medium uppercase tracking-[0.2em] text-matcha-950"
             >
-              How to brew
+              Hoe bereid je het
             </a>
           </div>
 
           <p className="mt-6 max-w-md font-body text-sm leading-relaxed text-ink-soft">
-            Pre-orders open when the supplier and harvest lot are locked. Add
-            your email and we&rsquo;ll send a single notification when you can
-            buy.
+            Pre-orders openen zodra de leverancier en het oogstlot zijn
+            vastgelegd. Laat je e-mailadres achter en we sturen één bericht
+            zodra je kunt bestellen.
           </p>
         </div>
       </div>

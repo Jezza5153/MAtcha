@@ -37,7 +37,7 @@ export function ReduceMotionToggle() {
           className={`block h-4 w-4 rounded-full bg-cream-50 transition-transform ${enabled ? "translate-x-4" : "translate-x-0"}`}
         />
       </span>
-      Reduce motion
+      Minder beweging
     </button>
   );
 }

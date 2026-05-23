@@ -164,7 +164,7 @@ export function HeroPinned() {
     <section
       ref={sectionRef}
       className="relative h-screen w-full overflow-hidden bg-cream-50"
-      aria-label="Hero"
+      aria-label="Hero — Freddo Matcha"
     >
       <div
         ref={cloudRef}
@@ -184,12 +184,12 @@ export function HeroPinned() {
       <div className="relative z-10 mx-auto flex h-full max-w-6xl flex-col items-center justify-between px-6 pt-20 pb-14 sm:pt-24 sm:pb-20 md:px-10">
         <div ref={headlineRef} className="text-center">
           <p className="mb-4 font-body text-[0.7rem] uppercase tracking-[0.32em] text-matcha-700">
-            FREDDOMATCHA · Single-origin Japan
+            FREDDOMATCHA · Single-origin Japanse matcha
           </p>
           <h1 className="font-display text-[2.6rem] leading-[1.04] tracking-tight text-matcha-950 sm:text-6xl md:text-[5rem]">
             Freddo Matcha,
             <br />
-            <em className="not-italic text-matcha-800">future ritual in green.</em>
+            <em className="not-italic text-matcha-800">jouw ritueel in groen.</em>
           </h1>
         </div>
 
@@ -202,7 +202,7 @@ export function HeroPinned() {
             <div className="relative aspect-[4/5] w-44 sm:w-56 md:w-64 lg:w-72">
               <Image
                 src="/images/matcha-pack.png"
-                alt="Ceremonial matcha pack"
+                alt="Blik ceremoniële matcha"
                 fill
                 priority
                 sizes="(min-width: 1024px) 288px, (min-width: 768px) 256px, (min-width: 640px) 224px, 176px"
@@ -217,13 +217,13 @@ export function HeroPinned() {
             ref={sublineRef}
             className="max-w-md font-body text-base text-ink-soft sm:text-lg"
           >
-            A high-end matcha experience blending Japanese restraint with editorial futurism.
+            Een premium matcha-ervaring met Japanse rust en redactioneel ontwerp.
           </p>
           <a
-            href="#products"
+            href="#producten"
             className="inline-flex items-center gap-3 rounded-full bg-matcha-900 px-7 py-3 font-body text-sm font-medium uppercase tracking-[0.18em] text-cream-50 shadow-lg shadow-matcha-950/15 transition-colors hover:bg-matcha-800 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-matcha-700"
           >
-            Choose your matcha
+            Kies jouw matcha
             <span aria-hidden>→</span>
           </a>
         </div>

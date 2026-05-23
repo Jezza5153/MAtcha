@@ -5,15 +5,15 @@ export function ProductFAQ({ items }: { items: FaqItem[] }) {
 
   return (
     <section
-      aria-label="Frequently asked questions"
+      aria-label="Veelgestelde vragen"
       className="bg-cream-50 px-6 py-16 md:px-10 md:py-24"
     >
       <div className="mx-auto max-w-3xl">
         <p className="font-body text-[0.7rem] uppercase tracking-[0.32em] text-matcha-700">
-          FAQ
+          Veelgestelde vragen
         </p>
         <h2 className="mt-3 font-display text-3xl leading-tight tracking-tight text-matcha-950 md:text-4xl">
-          Common questions.
+          Vaak gevraagd.
         </h2>
 
         <ul className="mt-10 divide-y divide-matcha-900/10 border-y border-matcha-900/10">

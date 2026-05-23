@@ -2,29 +2,53 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Our story",
+  title: "Ons verhaal",
   description:
-    "Freddo Matcha — Italian-Japanese house, single-origin Japanese matcha. The story behind the brand.",
+    "Freddo Matcha — een Italiaans-Japans huis met single-origin Japanse matcha. Het verhaal achter het merk en waarom we keuzes maken, geen claims.",
+};
+
+const breadcrumbJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Home",
+      item: "https://freddomatcha.nl/",
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "Ons verhaal",
+      item: "https://freddomatcha.nl/verhaal",
+    },
+  ],
 };
 
 export default function StoryPage() {
   return (
-    <main className="bg-cream-50">
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+      <main className="bg-cream-50">
       <section className="px-6 pt-40 pb-20 md:px-10 md:pt-48 md:pb-32">
         <div className="mx-auto max-w-3xl">
           <p className="font-body text-[0.7rem] uppercase tracking-[0.32em] text-matcha-700">
-            Our story
+            Ons verhaal
           </p>
           <h1 className="mt-4 font-display text-5xl leading-[1.04] tracking-tight text-matcha-950 md:text-7xl">
-            Italian restraint.
+            Italiaanse rust.
             <br />
-            <em className="not-italic text-matcha-800">Japanese sourcing.</em>
+            <em className="not-italic text-matcha-800">Japanse herkomst.</em>
           </h1>
           <p className="mt-10 max-w-2xl font-body text-lg leading-relaxed text-ink-soft md:text-xl">
-            Freddo Matcha is what happens when a European house — with the
-            patience for a slow product and the discipline for restrained
-            design — sources single-origin Japanese matcha and lets the leaf
-            do the talking.
+            Freddo Matcha is wat er ontstaat als een Europees huis &mdash; met
+            geduld voor een langzaam product en discipline voor terughoudend
+            ontwerp &mdash; single-origin Japanse matcha selecteert en het blad
+            het woord laat doen.
           </p>
         </div>
       </section>
@@ -33,22 +57,23 @@ export default function StoryPage() {
         <div className="mx-auto grid max-w-5xl gap-12 md:grid-cols-12 md:gap-16">
           <div className="md:col-span-4">
             <p className="font-body text-[0.7rem] uppercase tracking-[0.32em] text-matcha-700">
-              01 · Origin
+              01 · Herkomst
             </p>
             <p className="mt-3 font-display text-3xl leading-snug text-matcha-950">
-              Where the leaf comes from.
+              Waar het blad vandaan komt.
             </p>
           </div>
           <div className="md:col-span-8">
             <p className="font-body text-base leading-relaxed text-ink-soft md:text-lg">
-              The leaves we source are grown in Japan. The specific farm and
-              region will be named on every tin once our supplier relationship
-              is locked. Until then we won&rsquo;t name a place we
-              can&rsquo;t prove, even if it&rsquo;s the place we want.
+              Het blad dat we selecteren wordt gekweekt in Japan. De specifieke
+              boerderij en regio komen op elk blik te staan zodra onze
+              leveranciersrelatie is vastgelegd. Tot die tijd noemen we geen
+              plek die we niet kunnen bewijzen, ook al is het de plek die we
+              willen.
             </p>
             <p className="mt-5 font-body text-base leading-relaxed text-ink-soft md:text-lg">
-              Premium dies the moment a buyer suspects the brand is guessing.
-              So we wait, and we publish the paperwork.
+              Premium valt om op het moment dat een koper merkt dat het merk zit
+              te raden. Dus wachten we, en publiceren we de papieren.
             </p>
           </div>
         </div>
@@ -58,23 +83,24 @@ export default function StoryPage() {
         <div className="mx-auto grid max-w-5xl gap-12 md:grid-cols-12 md:gap-16">
           <div className="md:col-span-4">
             <p className="font-body text-[0.7rem] uppercase tracking-[0.32em] text-matcha-700">
-              02 · Slow
+              02 · Langzaam
             </p>
             <p className="mt-3 font-display text-3xl leading-snug text-matcha-950">
-              How the powder is made.
+              Hoe het poeder wordt gemaakt.
             </p>
           </div>
           <div className="md:col-span-8">
             <p className="font-body text-base leading-relaxed text-ink-soft md:text-lg">
-              The path from harvested leaf to finished powder takes time. Tea
-              is shaded, picked, steamed, dried, sorted, and ground. Done well
-              and slowly, the result is a low-bitterness, soft-umami powder
-              that holds its character whether you whisk it solo or pour it
-              over ice.
+              De route van geoogst blad naar afgewerkt poeder kost tijd. De thee
+              wordt geschaduwd, geplukt, gestoomd, gedroogd, gesorteerd en
+              gemalen. Goed en langzaam gedaan ontstaat er een poeder met weinig
+              bitterheid en zachte umami, dat zijn karakter houdt of je het nu
+              puur opklopt of over ijs schenkt.
             </p>
             <p className="mt-5 font-body text-base leading-relaxed text-ink-soft md:text-lg">
-              Whether ours is specifically stone-ground will appear on the
-              tin and on our product page once supplier confirms the method.
+              Of de onze specifiek tussen steen wordt gemalen verschijnt op het
+              blik en op de productpagina zodra de leverancier de methode
+              bevestigt.
             </p>
           </div>
         </div>
@@ -84,24 +110,28 @@ export default function StoryPage() {
         <div className="mx-auto grid max-w-5xl gap-12 md:grid-cols-12 md:gap-16">
           <div className="md:col-span-4">
             <p className="font-body text-[0.7rem] uppercase tracking-[0.32em] text-matcha-300">
-              03 · Ritual
+              03 · Ritueel
             </p>
             <p className="mt-3 font-display text-3xl leading-snug">
-              How you drink it.
+              Hoe je het drinkt.
             </p>
           </div>
           <div className="md:col-span-8">
             <p className="font-body text-base leading-relaxed text-cream-100/80 md:text-lg">
-              The brand isn&rsquo;t a religion. Drink it whisked solo at
-              dawn, shaken iced at noon, poured into oat milk after lunch.
-              The Italian half of the brand is that you don&rsquo;t need to
-              choose a side. The Japanese half is that whichever side you
-              choose, the leaf does the work.
+              Het merk is geen religie. Drink het puur opgeklopt bij zonsopgang,
+              iced rond het middaguur, geschonken in havermelk na de lunch. De
+              Italiaanse helft van het merk is dat je geen kant hoeft te kiezen.
+              De Japanse helft is dat welke kant je ook kiest, het blad het werk
+              doet.
             </p>
             <p className="mt-5 font-body text-base leading-relaxed text-cream-100/80 md:text-lg">
-              Three SKUs at launch: <em className="not-italic text-cream-50">Freddo Ceremoniale</em> for the ritual,
-              {" "}<em className="not-italic text-cream-50">Freddo Quotidiano</em> for the habit,
-              {" "}<em className="not-italic text-cream-50">Il Rito Starter Kit</em> for the first ten bowls.
+              Drie producten bij de launch:{" "}
+              <em className="not-italic text-cream-50">Freddo Ceremoniale</em>{" "}
+              voor het ritueel,{" "}
+              <em className="not-italic text-cream-50">Freddo Quotidiano</em>{" "}
+              voor de gewoonte,{" "}
+              <em className="not-italic text-cream-50">Il Rito Starter Kit</em>{" "}
+              voor de eerste tien kommen.
             </p>
           </div>
         </div>
@@ -110,19 +140,23 @@ export default function StoryPage() {
       <section className="px-6 py-20 md:px-10 md:py-32">
         <div className="mx-auto max-w-3xl">
           <p className="font-body text-[0.7rem] uppercase tracking-[0.32em] text-matcha-700">
-            What we won&rsquo;t claim
+            Wat we niet beweren
           </p>
           <p className="mt-4 font-display text-3xl leading-snug text-matcha-950 md:text-4xl">
-            Restraint, not noise.
+            Rust, geen ruis.
           </p>
           <ul className="mt-8 space-y-3 font-body text-base leading-relaxed text-ink-soft md:text-lg">
-            <li>No fake Japanese phrases as decoration.</li>
-            <li>No fake Italian flourishes as decoration.</li>
-            <li>No "ancient ritual" copy. The product is the ritual.</li>
-            <li>No region, cultivar, harvest year, or lab claim without the paperwork.</li>
-            <li>No five-star reviews until we have thirty real customers.</li>
+            <li>Geen Japanse termen als decoratie.</li>
+            <li>Geen Italiaanse krullen als decoratie.</li>
+            <li>Geen &ldquo;oeroud ritueel&rdquo;-praat. Het product is het ritueel.</li>
             <li>
-              No caffeine or health claims. The leaf is the leaf.
+              Geen regio, cultivar, oogstjaar of labclaim zonder de papieren.
+            </li>
+            <li>
+              Geen vijfsterrenreviews tot we dertig echte klanten hebben.
+            </li>
+            <li>
+              Geen cafe&iuml;ne- of gezondheidsclaims. Het blad is het blad.
             </li>
           </ul>
         </div>
@@ -131,20 +165,21 @@ export default function StoryPage() {
       <section className="bg-cream-100 px-6 py-20 md:px-10 md:py-28">
         <div className="mx-auto flex max-w-3xl flex-col items-start gap-8">
           <p className="font-body text-[0.7rem] uppercase tracking-[0.32em] text-matcha-700">
-            Ready?
+            Klaar?
           </p>
           <p className="font-display text-4xl leading-tight tracking-tight text-matcha-950 md:text-5xl">
-            See the lineup.
+            Bekijk de selectie.
           </p>
           <Link
-            href="/#products"
+            href="/#producten"
             className="inline-flex items-center gap-2 rounded-full bg-matcha-950 px-6 py-3 font-body text-xs font-medium uppercase tracking-[0.2em] text-cream-50 transition-colors hover:bg-matcha-900"
           >
-            The three tins
+            De drie blikken
             <span aria-hidden>→</span>
           </Link>
         </div>
       </section>
-    </main>
+      </main>
+    </>
   );
 }
