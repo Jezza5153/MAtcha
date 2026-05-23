@@ -24,11 +24,17 @@ export function MobileFAQTeaser() {
       <p className="font-body text-[0.7rem] uppercase tracking-[0.32em] text-matcha-700">
         Veelgestelde vragen
       </p>
-      <h2 className="mt-3 font-display text-3xl leading-[1.1] tracking-tight text-matcha-950">
+      <h2
+        data-mobile-reveal="section-headline"
+        className="mt-3 font-display text-3xl leading-[1.1] tracking-tight text-matcha-950"
+      >
         Wat mensen ons vaak vragen.
       </h2>
 
-      <ul className="mt-8 divide-y divide-matcha-900/10 border-y border-matcha-900/10">
+      <ul
+        data-mobile-reveal="faq"
+        className="mt-8 divide-y divide-matcha-900/10 border-y border-matcha-900/10"
+      >
         {items.map((it) => (
           <li key={it.q}>
             <details className="group">

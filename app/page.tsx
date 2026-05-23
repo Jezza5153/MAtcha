@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { BuyClose } from "@/components/scroll/BuyClose";
 import { DesktopCinematic } from "@/components/scroll/DesktopCinematic";
+import { MobileCinematic } from "@/components/scroll/MobileCinematic";
 import { SkipStoryLink } from "@/components/site/SkipStoryLink";
 import { MobileHero } from "@/components/site/MobileHero";
 import { MobileStarProduct } from "@/components/site/MobileStarProduct";
@@ -159,6 +160,11 @@ export default function Home() {
       <div className="hidden md:block">
         <BuyClose />
       </div>
+
+      {/* Mobile cinematic — short scroll-triggered reveals using the locked
+          motion vocabulary. No pinning, no Lenis. Gated to (max-width: 767px)
+          via gsap.matchMedia. Mounts once on the home page. */}
+      <MobileCinematic />
     </main>
   );
 }

@@ -42,7 +42,10 @@ export function MobileStoryCards() {
       <p className="font-body text-[0.65rem] uppercase tracking-[0.32em] text-matcha-700">
         Van blad tot ritueel
       </p>
-      <h2 className="mt-3 max-w-md font-display text-3xl leading-[1.1] tracking-tight text-matcha-950">
+      <h2
+        data-mobile-reveal="section-headline"
+        className="mt-3 max-w-md font-display text-3xl leading-[1.1] tracking-tight text-matcha-950"
+      >
         Drie stappen. Eén kom.
       </h2>
 
@@ -50,6 +53,7 @@ export function MobileStoryCards() {
         {cards.map((c) => (
           <li
             key={c.eyebrow}
+            data-mobile-reveal="story-card"
             className="overflow-hidden rounded-3xl border border-stone-soft/60 bg-cream-50"
           >
             <div className="relative aspect-[16/10] w-full">

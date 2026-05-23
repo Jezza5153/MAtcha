@@ -28,7 +28,10 @@ export function MobileRitualBlock() {
       <p className="font-body text-[0.7rem] uppercase tracking-[0.32em] text-matcha-200">
         Het ritueel
       </p>
-      <h2 className="mt-3 max-w-sm font-display text-3xl leading-[1.1] tracking-tight text-cream-50">
+      <h2
+        data-mobile-reveal="section-headline"
+        className="mt-3 max-w-sm font-display text-3xl leading-[1.1] tracking-tight text-cream-50"
+      >
         Drie rustige stappen, één goede kom.
       </h2>
       <p className="mt-4 max-w-sm font-body text-sm leading-relaxed text-cream-100/80">
@@ -40,6 +43,7 @@ export function MobileRitualBlock() {
         {steps.map((s) => (
           <li
             key={s.n}
+            data-mobile-reveal="ritual-step"
             className="flex gap-4 border-t border-cream-50/10 pt-6 first:border-t-0 first:pt-0"
           >
             <span
