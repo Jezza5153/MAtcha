@@ -163,7 +163,7 @@ export function HeroPinned() {
   return (
     <section
       ref={sectionRef}
-      className="relative h-screen w-full overflow-hidden bg-cream-50"
+      className="relative h-[100dvh] w-full overflow-hidden bg-cream-50"
       aria-label="Hero — Freddo Matcha"
     >
       <div

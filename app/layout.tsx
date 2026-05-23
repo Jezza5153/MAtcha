@@ -9,6 +9,7 @@ import { MiniCart } from "@/components/site/MiniCart";
 import { StickyShopCTA } from "@/components/site/StickyShopCTA";
 import { ScrollProgress } from "@/components/site/ScrollProgress";
 import { TrustStrip } from "@/components/site/TrustStrip";
+import { SkipToContent } from "@/components/site/SkipToContent";
 import { AnalyticsScripts } from "@/components/site/AnalyticsScripts";
 
 const fraunces = Fraunces({
@@ -126,6 +127,7 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(globalJsonLd) }}
         />
+        <SkipToContent />
         <TrustStrip />
         <LenisProvider>
           <CartProvider>

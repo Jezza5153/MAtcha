@@ -87,7 +87,7 @@ export function SiteFooter() {
 
         <div className="mt-16 flex flex-col gap-6 border-t border-cream-50/10 pt-8 md:flex-row md:items-center md:justify-between">
           <div className="flex items-center gap-4">
-            <p className="font-body text-[0.7rem] uppercase tracking-[0.22em] text-cream-100/55">
+            <p className="font-body text-[0.7rem] uppercase tracking-[0.22em] text-cream-100">
               Betaalmethoden · placeholder
             </p>
             <ul className="flex items-center gap-2">
@@ -95,7 +95,7 @@ export function SiteFooter() {
                 <li
                   key={p}
                   aria-label={`${p} geaccepteerd bij afrekenen (placeholder)`}
-                  className="rounded border border-cream-50/15 px-2 py-1 font-body text-[0.6rem] uppercase tracking-[0.18em] text-cream-100/60"
+                  className="rounded border border-cream-50/30 bg-matcha-900 px-2 py-1 font-body text-[0.7rem] uppercase tracking-[0.18em] text-cream-50"
                 >
                   {p}
                 </li>
@@ -107,11 +107,11 @@ export function SiteFooter() {
         </div>
 
         <div className="mt-8 flex flex-col gap-3 border-t border-cream-50/10 pt-6 md:flex-row md:items-center md:justify-between">
-          <p className="font-body text-[0.7rem] text-cream-100/50">
+          <p className="font-body text-[0.7rem] text-cream-100/70">
             © {year} Freddo Matcha. Alle rechten voorbehouden. Pre-launch site —
             inhoud kan nog veranderen.
           </p>
-          <ul className="flex flex-wrap gap-5 font-body text-[0.7rem] text-cream-100/50">
+          <ul className="flex flex-wrap gap-5 font-body text-[0.7rem] text-cream-100/70">
             <li>
               <Link href="/privacy" className="hover:text-cream-50">
                 Privacy
@@ -143,7 +143,7 @@ function FooterColumn({
 }) {
   return (
     <div className="md:col-span-2">
-      <p className="font-body text-[0.7rem] uppercase tracking-[0.22em] text-cream-100/55">
+      <p className="font-body text-[0.7rem] uppercase tracking-[0.22em] text-cream-100/75">
         {title}
       </p>
       <ul className="mt-4 space-y-3 font-body text-sm text-cream-100/85">

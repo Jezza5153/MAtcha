@@ -151,7 +151,7 @@ export function OriginPinned() {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full overflow-hidden bg-matcha-950 text-cream-50 md:h-screen"
+      className="relative w-full overflow-hidden bg-matcha-950 text-cream-50 md:h-[100dvh]"
       aria-label="Herkomst"
     >
       <div ref={imageRef} className="origin-image absolute inset-0">

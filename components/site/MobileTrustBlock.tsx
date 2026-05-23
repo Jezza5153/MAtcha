@@ -36,24 +36,24 @@ export function MobileTrustBlock() {
         Vier dingen die je van ons mag verwachten.
       </h2>
 
-      <dl className="mt-8 grid grid-cols-2 gap-3">
+      <ul className="mt-8 grid grid-cols-2 gap-3">
         {stats.map((s) => (
-          <div
+          <li
             key={s.eyebrow}
             className="rounded-2xl border border-matcha-900/10 bg-cream-50 p-4"
           >
-            <dt className="font-body text-[0.7rem] uppercase tracking-[0.22em] text-matcha-700">
+            <p className="font-body text-[0.7rem] uppercase tracking-[0.22em] text-matcha-700">
               {s.eyebrow}
-            </dt>
-            <dd className="mt-2 font-display text-lg leading-tight text-matcha-950">
+            </p>
+            <p className="mt-2 font-display text-lg leading-tight text-matcha-950">
               {s.value}
-            </dd>
+            </p>
             <p className="mt-1.5 font-body text-[0.78rem] leading-snug text-ink-soft">
               {s.note}
             </p>
-          </div>
+          </li>
         ))}
-      </dl>
+      </ul>
     </section>
   );
 }

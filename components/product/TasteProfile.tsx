@@ -33,12 +33,12 @@ export function TasteProfile({
               {tasteNotes.map((t) => (
                 <div
                   key={t.key}
-                  className="grid grid-cols-3 gap-4 border-b border-matcha-900/10 pb-3"
+                  className="flex flex-col gap-1 border-b border-matcha-900/10 pb-3 sm:grid sm:grid-cols-3 sm:gap-4"
                 >
-                  <dt className="col-span-1 font-body text-[0.7rem] uppercase tracking-[0.22em] text-matcha-700">
+                  <dt className="font-body text-[0.7rem] uppercase tracking-[0.22em] text-matcha-700 sm:col-span-1">
                     {t.key}
                   </dt>
-                  <dd className="col-span-2 font-body text-sm text-matcha-950">
+                  <dd className="font-body text-sm text-matcha-950 sm:col-span-2">
                     {t.note}
                   </dd>
                 </div>

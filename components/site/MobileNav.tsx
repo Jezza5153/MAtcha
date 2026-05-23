@@ -105,6 +105,7 @@ export function MobileNav() {
         aria-modal="true"
         aria-label="Hoofdmenu"
         aria-hidden={!open}
+        inert={!open ? true : undefined}
         className={`fixed inset-y-0 left-0 z-50 flex w-[88vw] max-w-sm flex-col bg-cream-50 shadow-2xl transition-transform duration-500 ease-out md:hidden ${
           open ? "translate-x-0" : "-translate-x-full"
         }`}
@@ -148,7 +149,7 @@ export function MobileNav() {
         </nav>
 
         <footer className="border-t border-matcha-900/10 px-6 pt-5">
-          <ReduceMotionToggle />
+          <ReduceMotionToggle tone="light" />
           <p className="mt-4 font-body text-xs uppercase tracking-[0.22em] text-ink-soft">
             Pre-launch
           </p>

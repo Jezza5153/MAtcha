@@ -276,7 +276,27 @@ Chrome Lighthouse (mobile preset, slow 4G, 4× CPU throttle) against `next build
 
 ---
 
-## 9. Do not regress
+## 9. Final Lighthouse measurements
+
+Production build (`next build && next start`), viewport 360 × 740 (mobile preset, simulate throttling, headless Chrome):
+
+| Page | Performance | Accessibility | Best Practices | SEO | LCP | FCP | CLS | TBT |
+|------|------------:|--------------:|---------------:|----:|----:|----:|----:|----:|
+| Home (`/`) | **91** | **100** | **100** | 66 | 3.5 s | 0.9 s | **0** | 20 ms |
+| PDP (`/producten/ceremoniele-matcha`) | 88 | **96** | **100** | 66 | 3.9 s | 0.9 s | **0** | 10 ms |
+
+**Targets met:**
+- ✅ Accessibility ≥ 95 (home 100, PDP 96)
+- ✅ Best Practices ≥ 95 (both 100)
+- ✅ CLS < 0.05 (both 0)
+- ✅ INP / TBT ≤ 200 ms (both ≤ 20 ms)
+- ✅ Performance ≥ 90 on the home (91); PDP at 88 — 2 points shy. Improving PDP LCP further means optimizing the priority hero image (next round: WebP/AVIF assets when the real photography lands replacing the SVG mockups).
+
+**SEO capped at 66 by design:** the intentional pre-launch `robots: { index: false, follow: false }` in `app/layout.tsx` fails Lighthouse's "is-crawlable" check. At launch, flip to `index: true` and SEO jumps to ≥ 95. This is the only audit failing for SEO.
+
+For reference, the same audits in `next dev` reported Performance 75 / LCP 7.8 s — `next dev` ships unminified JS, no image optimization, no compression, so dev numbers are not ship-bar. Always Lighthouse against `next start` for shippable scores.
+
+## 10. Do not regress
 
 These are the things that must remain true after this rebuild:
 
@@ -290,7 +310,7 @@ These are the things that must remain true after this rebuild:
 
 ---
 
-## 10. Open after rebuild
+## 11. Open after rebuild
 
 These are deliberately not in scope here; they belong to later PRs in `product-and-commerce-spec.md` §7:
 

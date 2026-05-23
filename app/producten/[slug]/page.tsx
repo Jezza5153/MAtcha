@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { getProduct, productSlugs, formatPrice } from "@/lib/products";
 import type { ProductSlug } from "@/lib/products";
 import { ProductHero } from "@/components/product/ProductHero";
+import { MobileStickyBuyBar } from "@/components/product/MobileStickyBuyBar";
 import { ProductTracker } from "@/components/product/ProductTracker";
 import { TasteProfile } from "@/components/product/TasteProfile";
 import { ProvenanceTable } from "@/components/product/ProvenanceTable";
@@ -120,7 +121,7 @@ export default async function ProductPage({
   };
 
   return (
-    <>
+    <main id="main">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -132,6 +133,7 @@ export default async function ProductPage({
         priceCents={product.priceCents}
       />
       <ProductHero product={product} />
+      <MobileStickyBuyBar product={product} />
 
       <section
         aria-label="Over dit blik"
@@ -174,7 +176,7 @@ export default async function ProductPage({
       <ProductFAQ items={product.faq} />
 
       <RelatedProducts currentSlug={product.slug} />
-    </>
+    </main>
   );
 }
 

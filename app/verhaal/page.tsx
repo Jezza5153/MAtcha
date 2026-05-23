@@ -33,7 +33,7 @@ export default function StoryPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
-      <main className="bg-cream-50">
+      <main id="main" className="bg-cream-50">
       <section className="px-6 pt-40 pb-20 md:px-10 md:pt-48 md:pb-32">
         <div className="mx-auto max-w-3xl">
           <p className="font-body text-[0.7rem] uppercase tracking-[0.32em] text-matcha-700">
