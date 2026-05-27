@@ -29,7 +29,7 @@ export function MobileRitualBlock() {
         Het ritueel
       </p>
       <h2
-        data-mobile-reveal="section-headline"
+
         className="mt-3 max-w-sm font-display text-3xl leading-[1.1] tracking-tight text-cream-50"
       >
         Drie rustige stappen, één goede kom.
@@ -43,7 +43,7 @@ export function MobileRitualBlock() {
         {steps.map((s) => (
           <li
             key={s.n}
-            data-mobile-reveal="ritual-step"
+
             className="flex gap-4 border-t border-cream-50/10 pt-6 first:border-t-0 first:pt-0"
           >
             <span

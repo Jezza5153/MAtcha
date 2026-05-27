@@ -10,19 +10,19 @@ export function MobileEmailSection() {
         Pre-launch
       </p>
       <h2
-        data-mobile-reveal="section-headline"
+
         className="mt-3 max-w-sm font-display text-3xl leading-[1.08] tracking-tight text-cream-50"
       >
         Wees de eerste die kan bestellen.
       </h2>
       <p
-        data-mobile-reveal="email-section"
+
         className="mt-4 max-w-sm font-body text-sm leading-relaxed text-cream-100/80"
       >
         Eén bericht, geen spam. We sturen alleen de launchaankondiging zodra
         sourcing en lot zijn vastgelegd.
       </p>
-      <div data-mobile-reveal="email-section" className="mt-7 max-w-md">
+      <div className="mt-7 max-w-md">
         <EmailCapture source="mobile-home" variant="dark" />
       </div>
     </section>

@@ -5,7 +5,7 @@ export function MobilePreLaunchNote() {
       className="bg-cream-50 px-6 py-12"
     >
       <div
-        data-mobile-reveal="note"
+
         className="rounded-3xl border border-matcha-900/10 bg-cream-100 p-7"
       >
         <p className="font-body text-[0.7rem] uppercase tracking-[0.32em] text-matcha-700">
