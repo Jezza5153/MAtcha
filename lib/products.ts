@@ -31,17 +31,10 @@ export type Product = {
   longDescription: string;
   /**
    * Consumer-facing retail price in cents, *including* 9% Dutch BTW (the food
-   * VAT rate matcha falls under). This is the number we render on the page.
-   * For the matcha tins this is derived from `pricePerKgCentsExBtw × weight`;
-   * for kits / bundles it's set directly.
+   * VAT rate matcha falls under). This is the source of truth shown on the
+   * page. Owner-set per tin / per kit.
    */
   priceCents: number;
-  /**
-   * Per-kilogram rate ex BTW. Used for the matcha tins (Ceremoniale and
-   * Quotidiano are pure matcha by weight). Null for kits / bundles where the
-   * per-kg model doesn't apply (the Starter Kit includes tools).
-   */
-  pricePerKgCentsExBtw: number | null;
   stripePriceId: string | null;
   provenance: Provenance | null;
   weightGrams: number | null;
@@ -54,13 +47,9 @@ export type Product = {
 /** Dutch BTW rate for food (matcha = tea = food). */
 export const BTW_RATE_FOOD = 0.09;
 
-/** Compute consumer-facing tin price in cents incl BTW from a per-kg ex BTW rate. */
-function tinPriceCentsInclBtw(
-  perKgCentsExBtw: number,
-  grams: number,
-): number {
-  // (cents/kg) × (kg) × (1 + btw) → rounded to whole cents
-  return Math.round((perKgCentsExBtw * grams * (1 + BTW_RATE_FOOD)) / 1000);
+/** Strip BTW from a consumer-facing (incl btw) price. Rounded to cents. */
+export function priceCentsExBtw(priceCentsInclBtw: number): number {
+  return Math.round(priceCentsInclBtw / (1 + BTW_RATE_FOOD));
 }
 
 const unknownProvenance: Provenance = {
@@ -85,8 +74,7 @@ export const products: Product[] = [
       "Een ceremoniële matcha voor wie matcha puur wil drinken: zacht, helder en zorgvuldig geselecteerd voor een elegante kom zonder bitter randje.",
     longDescription:
       "Freddo Ceremoniale is de meest verfijnde matcha in de eerste selectie. Gemaakt voor wie matcha puur opklopt met water en de smaak echt wil proeven. Denk aan een zachte body, heldere groene tonen en een schone afdronk. Geen overdreven beloftes, geen wellness-theater. Alleen een rustige, precieze matcha voor momenten waarop je iets beters wilt dan haast.",
-    pricePerKgCentsExBtw: 25000, // €250 / kg ex BTW
-    priceCents: tinPriceCentsInclBtw(25000, 30), // €8,18 incl btw voor blik van 30g
+    priceCents: 3500, // €35,00 incl 9% btw (30g blik, ex btw €32,11)
     stripePriceId: null,
     provenance: unknownProvenance,
     weightGrams: 30,
@@ -142,8 +130,7 @@ export const products: Product[] = [
       "Een toegankelijke Japanse matcha voor je dagelijkse latte, iced matcha of snelle ochtendroutine. Vol genoeg voor melk, zacht genoeg voor elke dag.",
     longDescription:
       "Freddo Quotidiano is gemaakt voor dagelijks gebruik. Niet te kostbaar om vaak te drinken, maar wel serieus genoeg om je matcha latte beter te maken dan de waterige, bittere versies die je te vaak tegenkomt. Deze matcha heeft genoeg body om door melk heen te komen en blijft rustig in smaak. Ideaal voor warme latte, iced matcha of een snelle kom op drukke dagen.",
-    pricePerKgCentsExBtw: 19000, // €190 / kg ex BTW
-    priceCents: tinPriceCentsInclBtw(19000, 30), // €6,21 incl btw voor blik van 30g
+    priceCents: 2500, // €25,00 incl 9% btw (30g blik, ex btw €22,94)
     stripePriceId: null,
     provenance: unknownProvenance,
     weightGrams: 30,
@@ -199,10 +186,8 @@ export const products: Product[] = [
       "Een rustige startset met matcha en de tools die je nodig hebt om thuis goed te beginnen. Geen overvolle kit, alleen wat echt helpt.",
     longDescription:
       "Il Rito Starter Kit is gemaakt voor iedereen die thuis matcha wil maken zonder meteen te verdwalen in tools, termen en tegenstrijdige adviezen. Je krijgt een duidelijke basis: goede matcha, de juiste beweging en genoeg begeleiding om het ritueel eigen te maken. Niet ingewikkeld. Wel beter dan roeren met een lepel en hopen dat het goed komt.",
-    pricePerKgCentsExBtw: 22000, // €220 / kg ex BTW — matcha-portie tarief
-    // Kit = 30g matcha (€7,19 incl btw) + chasen + maatlepel + zeefje.
-    // Totaalprijs incl btw — verander hier als toolkit-kostprijs schuift.
-    priceCents: 3799, // €37,99 incl btw
+    // Kit = 30g matcha + chasen + maatlepel + zeefje, alles in één set.
+    priceCents: 3000, // €30,00 incl 9% btw (ex btw €27,52)
     stripePriceId: null,
     provenance: null,
     weightGrams: 30,
