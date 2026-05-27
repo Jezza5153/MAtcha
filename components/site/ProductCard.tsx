@@ -36,15 +36,20 @@ export function ProductCard({ product }: { product: Product }) {
         <p className="mt-1.5 font-body text-sm leading-snug text-ink-soft">
           {product.tagline}
         </p>
-        <div className="mt-4 flex items-baseline gap-3">
-          <span className="font-display text-xl text-ink">
-            {formatPrice(product.priceCents)}
-          </span>
-          {product.weightGrams && (
-            <span className="font-body text-[0.7rem] uppercase tracking-[0.2em] text-ink-soft">
-              {product.weightGrams}g blik
+        <div className="mt-4">
+          <div className="flex items-baseline gap-3">
+            <span className="font-display text-xl text-ink">
+              {formatPrice(product.priceCents)}
             </span>
-          )}
+            {product.weightGrams && (
+              <span className="font-body text-[0.7rem] uppercase tracking-[0.2em] text-ink-soft">
+                {product.weightGrams}g blik
+              </span>
+            )}
+          </div>
+          <p className="mt-1 font-body text-[0.65rem] uppercase tracking-[0.2em] text-ink-soft/75">
+            Incl. 9% btw
+          </p>
         </div>
       </Link>
 
