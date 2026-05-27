@@ -28,15 +28,20 @@ export function ProductHero({ product }: { product: Product }) {
             {product.tagline}
           </p>
 
-          <div className="mt-6 flex items-baseline gap-4 md:mt-8">
-            <span className="font-display text-3xl text-matcha-950">
-              {formatPrice(product.priceCents)}
-            </span>
-            {product.weightGrams && (
-              <span className="font-body text-sm text-ink-soft">
-                Blik van {product.weightGrams}g
+          <div className="mt-6 md:mt-8">
+            <div className="flex items-baseline gap-4">
+              <span className="font-display text-3xl text-matcha-950">
+                {formatPrice(product.priceCents)}
               </span>
-            )}
+              {product.weightGrams && (
+                <span className="font-body text-sm text-ink-soft">
+                  Blik van {product.weightGrams}g
+                </span>
+              )}
+            </div>
+            <p className="mt-1.5 font-body text-[0.7rem] uppercase tracking-[0.2em] text-ink-soft/75">
+              Incl. 9% btw
+            </p>
           </div>
 
           <div className="mt-7 flex flex-col gap-3 md:mt-8 md:flex-row md:flex-wrap md:items-center">

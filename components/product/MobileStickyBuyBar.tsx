@@ -106,7 +106,7 @@ export function MobileStickyBuyBar({ product }: { product: Product }) {
               {product.name}
             </p>
             <p className="font-body text-[0.7rem] uppercase tracking-[0.2em] text-cream-100/70">
-              {formatPrice(product.priceCents)}
+              {formatPrice(product.priceCents)} · incl. btw
             </p>
           </div>
           <button

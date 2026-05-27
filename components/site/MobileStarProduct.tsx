@@ -42,15 +42,20 @@ export function MobileStarProduct() {
             <p className="mt-2 font-body text-sm leading-relaxed text-ink-soft">
               {star.tagline}
             </p>
-            <div className="mt-5 flex items-baseline gap-3">
-              <span className="font-display text-2xl text-matcha-950">
-                {formatPrice(star.priceCents)}
-              </span>
-              {star.weightGrams && (
-                <span className="font-body text-xs uppercase tracking-[0.2em] text-ink-soft">
-                  {star.weightGrams}g blik
+            <div className="mt-5">
+              <div className="flex items-baseline gap-3">
+                <span className="font-display text-2xl text-matcha-950">
+                  {formatPrice(star.priceCents)}
                 </span>
-              )}
+                {star.weightGrams && (
+                  <span className="font-body text-xs uppercase tracking-[0.2em] text-ink-soft">
+                    {star.weightGrams}g blik
+                  </span>
+                )}
+              </div>
+              <p className="mt-1 font-body text-[0.65rem] uppercase tracking-[0.2em] text-ink-soft/75">
+                Incl. 9% btw
+              </p>
             </div>
           </div>
           <Link
